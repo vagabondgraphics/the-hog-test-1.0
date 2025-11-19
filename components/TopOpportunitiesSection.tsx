@@ -126,24 +126,20 @@ export default function TopOpportunitiesSection() {
 
   return (
     <>
-      <div className="border-b border-gray-200">
+      {/* Merged Box Container - Sharp Corners, No Shadow */}
+      <div className="border border-gray-200">
         {/* Section Header */}
-        <div className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+        <div className="border-b border-gray-200 px-6 py-4 flex items-center justify-between bg-white">
           <h2 className="text-xl font-bold text-gray-900">Top Opportunities Found:</h2>
-          <button
-            onClick={() => router.push('/opportunities')}
-            className="px-4 py-2 border border-primary text-primary text-sm font-bold rounded-md hover:bg-blue-50 transition-colors"
-          >
-            View All
-          </button>
+          <span className="text-sm text-neutral">Last 24 hours</span>
         </div>
 
-        {/* Two-Column Layout: Main (Left) + Compact List (Right) */}
-        <div className="flex gap-6 p-6">
-          {/* LEFT: Main Opportunity (60%) */}
-          <div className="w-[60%]">
+        {/* Two-Column Layout: Main (Left) + Compact List (Right) - NO GAPS */}
+        <div className="flex">
+          {/* LEFT: Main Opportunity (60%) - Sharp Corners, White BG */}
+          <div className="w-[60%] border-r border-gray-200">
             <div
-              className={`bg-surface-light border-2 border-primary rounded-xl p-6 transition-all duration-300 ${
+              className={`bg-white p-6 transition-all duration-300 ${
                 isDismissing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
               }`}
             >
@@ -217,51 +213,26 @@ export default function TopOpportunitiesSection() {
             </div>
           </div>
 
-          {/* RIGHT: Compact Opportunities List (40%, Scrollable) */}
-          <div className="w-[40%]">
-            <div className="flex gap-4 overflow-x-auto pb-2">
-              {compactOpportunities.map((opp, index) => (
-                <div
-                  key={opp.id}
-                  className={`min-w-[180px] bg-white border border-gray-200 rounded-lg p-4 hover:border-primary transition-all duration-300 cursor-pointer flex flex-col ${
-                    isDismissing && index === 0 ? 'translate-x-[-620px]' : ''
-                  }`}
-                >
-                  {/* Mini Badges */}
-                  <div className="flex gap-1 mb-2">
-                    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800">
-                      {opp.icpFit}% ICP
-                    </span>
-                    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-yellow-100 text-yellow-800">
-                      {opp.timeLeft.replace(' left', '')}
-                    </span>
-                  </div>
+          {/* RIGHT: Compact Opportunities List (40%, Vertical Stack) */}
+          <div className="w-[40%] bg-white flex flex-col">
+            {compactOpportunities.map((opp, index) => (
+              <div
+                key={opp.id}
+                className={`px-5 py-4 hover:bg-surface-light transition-colors cursor-pointer flex items-center justify-between ${
+                  index < compactOpportunities.length - 1 ? 'border-b border-gray-200' : ''
+                }`}
+              >
+                {/* Title (Left) */}
+                <h4 className="text-base font-bold text-gray-900 leading-tight flex-1 pr-4">
+                  {opp.title}
+                </h4>
 
-                  {/* Title */}
-                  <h4 className="text-sm font-bold text-gray-900 mb-3 leading-tight line-clamp-2 flex-grow">
-                    {opp.title}
-                  </h4>
-
-                  {/* Score */}
-                  <div className="text-xl font-bold text-primary mb-2">{opp.score}/10</div>
-
-                  {/* Mini Progress Bar */}
-                  <div className="mb-3">
-                    <div className="w-full bg-gray-200 rounded-full h-[3px]">
-                      <div
-                        className="bg-primary h-[3px] rounded-full"
-                        style={{ width: `${opp.icpFit}%` }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <button className="text-sm font-bold text-primary hover:underline mt-auto">
-                    See More
-                  </button>
-                </div>
-              ))}
-            </div>
+                {/* See More Button (Right) */}
+                <button className="px-4 py-2 border border-primary text-primary text-sm font-bold rounded-md hover:bg-blue-50 transition-colors whitespace-nowrap">
+                  See More
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
