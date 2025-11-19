@@ -29,6 +29,10 @@ const config: Config = {
           light: '#F8FAFC',
           dark: '#1E293B',
         },
+        gray: {
+          100: '#F2F2F2',
+          200: '#E5E7EB',
+        },
       },
       spacing: {
         xs: '4px',

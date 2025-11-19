@@ -22,10 +22,10 @@ export default function Dashboard() {
         {/* Dashboard Content */}
         <main className="flex-1 overflow-y-auto bg-white">
           {/* Everything merged - no padding, no spacing */}
-          <div className="border-b border-gray-200">
+          <div className="border-b border-gray-100">
             {/* Metric Cards Row - No gaps between cards */}
-            <div className="flex border-b border-gray-200">
-              <div className="flex-1 border-r border-gray-200">
+            <div className="flex border-b border-gray-100">
+              <div className="flex-1 border-r border-gray-100">
                 <MetricCard
                   label="Opportunities Found"
                   value={47}
@@ -33,7 +33,7 @@ export default function Dashboard() {
                   href="/opportunities"
                 />
               </div>
-              <div className="flex-1 border-r border-gray-200">
+              <div className="flex-1 border-r border-gray-100">
                 <MetricCard
                   label="Competitive Moves Tracked"
                   value={23}
@@ -55,9 +55,9 @@ export default function Dashboard() {
             <TopOpportunitiesSection />
 
             {/* Charts Section - Side by Side */}
-            <div className="flex border-b border-gray-200">
+            <div className="flex border-b border-gray-100">
               {/* Left Chart - Line Chart */}
-              <div className="flex-1 border-r border-gray-200">
+              <div className="flex-1 border-r border-gray-100">
                 <OpportunityLineChart />
               </div>
 
@@ -68,7 +68,7 @@ export default function Dashboard() {
             </div>
 
             {/* Activity Feed - Full Width */}
-            <div className="border-b border-gray-200">
+            <div className="border-b border-gray-100">
               <ActivityFeed />
             </div>
           </div>

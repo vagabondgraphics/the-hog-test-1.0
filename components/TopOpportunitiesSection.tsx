@@ -127,9 +127,9 @@ export default function TopOpportunitiesSection() {
   return (
     <>
       {/* Merged Box Container - Sharp Corners, No Shadow */}
-      <div className="border border-gray-200">
+      <div className="border border-gray-100">
         {/* Section Header */}
-        <div className="border-b border-gray-200 px-6 py-4 flex items-center justify-between bg-white">
+        <div className="border-b border-gray-100 px-6 py-4 flex items-center justify-between bg-white">
           <h2 className="text-xl font-bold text-gray-900">Top Opportunities Found:</h2>
           <span className="text-sm text-neutral">Last 24 hours</span>
         </div>
@@ -137,7 +137,7 @@ export default function TopOpportunitiesSection() {
         {/* Two-Column Layout: Main (Left) + Compact List (Right) - NO GAPS */}
         <div className="flex">
           {/* LEFT: Main Opportunity (60%) - Sharp Corners, White BG */}
-          <div className="w-[60%] border-r border-gray-200">
+          <div className="w-[60%] border-r border-gray-100">
             <div
               className={`bg-white p-6 transition-all duration-300 ${
                 isDismissing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
@@ -219,7 +219,7 @@ export default function TopOpportunitiesSection() {
               <div
                 key={opp.id}
                 className={`px-5 py-4 hover:bg-surface-light transition-colors cursor-pointer flex items-center justify-between ${
-                  index < compactOpportunities.length - 1 ? 'border-b border-gray-200' : ''
+                  index < compactOpportunities.length - 1 ? 'border-b border-gray-100' : ''
                 }`}
               >
                 {/* Title (Left) */}
