@@ -3,23 +3,23 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-// Demo data: Weekly opportunity discovery trends
+// Demo data: Weekly opportunity discovery trends (realistic for small team)
 const data = [
-  { week: 'Nov 11', opportunities: 12, highIntent: 8, converted: 3 },
-  { week: 'Nov 13', opportunities: 19, highIntent: 12, converted: 5 },
-  { week: 'Nov 15', opportunities: 23, highIntent: 15, converted: 7 },
-  { week: 'Nov 17', opportunities: 31, highIntent: 20, converted: 9 },
-  { week: 'Nov 19', opportunities: 28, highIntent: 18, converted: 8 },
-  { week: 'Nov 21', opportunities: 35, highIntent: 24, converted: 11 },
-  { week: 'Nov 23', opportunities: 47, highIntent: 32, converted: 15 },
-  { week: 'Nov 25', opportunities: 52, highIntent: 36, converted: 18 },
-  { week: 'Nov 27', opportunities: 45, highIntent: 30, converted: 14 },
-  { week: 'Nov 29', opportunities: 58, highIntent: 40, converted: 20 },
-  { week: 'Dec 1', opportunities: 51, highIntent: 35, converted: 17 },
-  { week: 'Dec 3', opportunities: 62, highIntent: 43, converted: 22 },
-  { week: 'Dec 5', opportunities: 68, highIntent: 48, converted: 25 },
-  { week: 'Dec 7', opportunities: 71, highIntent: 51, converted: 28 },
-  { week: 'Dec 9', opportunities: 65, highIntent: 46, converted: 24 },
+  { week: 'Nov 11', opportunities: 2, highIntent: 1, converted: 0 },
+  { week: 'Nov 13', opportunities: 3, highIntent: 1, converted: 1 },
+  { week: 'Nov 15', opportunities: 4, highIntent: 2, converted: 1 },
+  { week: 'Nov 17', opportunities: 5, highIntent: 2, converted: 1 },
+  { week: 'Nov 19', opportunities: 3, highIntent: 1, converted: 0 },
+  { week: 'Nov 21', opportunities: 6, highIntent: 3, converted: 1 },
+  { week: 'Nov 23', opportunities: 7, highIntent: 4, converted: 2 },
+  { week: 'Nov 25', opportunities: 8, highIntent: 3, converted: 1 },
+  { week: 'Nov 27', opportunities: 6, highIntent: 2, converted: 1 },
+  { week: 'Nov 29', opportunities: 9, highIntent: 5, converted: 2 },
+  { week: 'Dec 1', opportunities: 7, highIntent: 3, converted: 1 },
+  { week: 'Dec 3', opportunities: 10, highIntent: 6, converted: 3 },
+  { week: 'Dec 5', opportunities: 11, highIntent: 7, converted: 2 },
+  { week: 'Dec 7', opportunities: 13, highIntent: 8, converted: 3 },
+  { week: 'Dec 9', opportunities: 12, highIntent: 6, converted: 2 },
 ];
 
 // Custom tooltip component
@@ -54,21 +54,21 @@ export default function OpportunityLineChart() {
         <div className="flex gap-6 mb-1">
           <div>
             <div className="text-xs text-gray-500 mb-0.5">Total Opportunities</div>
-            <div className="text-base font-bold text-gray-900">685</div>
+            <div className="text-base font-bold text-gray-900">47</div>
           </div>
           <div>
             <div className="text-xs text-gray-500 mb-0.5">High Intent</div>
-            <div className="text-base font-bold text-gray-900">458</div>
+            <div className="text-base font-bold text-gray-900">18</div>
           </div>
           <div>
             <div className="text-xs text-gray-500 mb-0.5">Converted</div>
-            <div className="text-base font-bold text-gray-900">226</div>
+            <div className="text-base font-bold text-gray-900">7</div>
           </div>
         </div>
       </div>
 
       {/* Line Chart */}
-      <ResponsiveContainer width="100%" height={320}>
+      <ResponsiveContainer width="100%" height={240}>
         <LineChart
           data={data}
           margin={{ top: 10, right: 10, left: -25, bottom: 20 }}
