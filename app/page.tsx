@@ -29,6 +29,7 @@ export default function Dashboard() {
                   label="Opportunities Found"
                   value={47}
                   trend={{ direction: 'up', value: '+15% (vs. last 7 days)' }}
+                  href="/opportunities"
                 />
               </div>
               <div className="flex-1 border-r border-gray-200">
@@ -36,6 +37,7 @@ export default function Dashboard() {
                   label="Competitive Moves Tracked"
                   value={23}
                   trend={{ direction: 'up', value: '+5% (Last 7 days)' }}
+                  href="/competitors"
                 />
               </div>
               <div className="flex-1">
@@ -43,6 +45,7 @@ export default function Dashboard() {
                   label="Active Campaigns"
                   value={8}
                   subtitle="Across 4 channels"
+                  href="/campaigns"
                 />
               </div>
             </div>

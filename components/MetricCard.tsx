@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 interface MetricCardProps {
   label: string;
@@ -8,9 +11,11 @@ interface MetricCardProps {
     value: string;
   };
   subtitle?: string;
+  href?: string;
 }
 
-export default function MetricCard({ label, value, trend, subtitle }: MetricCardProps) {
+export default function MetricCard({ label, value, trend, subtitle, href }: MetricCardProps) {
+  const router = useRouter();
   const getTrendColor = (direction: 'up' | 'down' | 'neutral') => {
     switch (direction) {
       case 'up':
@@ -33,8 +38,17 @@ export default function MetricCard({ label, value, trend, subtitle }: MetricCard
     }
   };
 
+  const handleClick = () => {
+    if (href) {
+      router.push(href);
+    }
+  };
+
   return (
-    <div className="p-4">
+    <div
+      className={`p-4 ${href ? 'cursor-pointer hover:bg-gray-50 transition-colors' : ''}`}
+      onClick={handleClick}
+    >
       <div className="text-caption text-neutral mb-1">{label}</div>
       <div className="text-4xl font-bold text-gray-900 mb-1 leading-tight">{value}</div>
       {trend && (
