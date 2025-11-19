@@ -135,9 +135,9 @@ export default function TopOpportunitiesSection() {
         </div>
 
         {/* Two-Column Layout: Main (Left) + Compact List (Right) - NO GAPS */}
-        <div className="flex border-b border-gray-100">
+        <div className="flex border-l border-r border-b border-gray-100">
           {/* LEFT: Main Opportunity (60%) - Sharp Corners, White BG */}
-          <div className="w-[60%] border-l border-r border-gray-100">
+          <div className="w-[60%]">
             <div
               className={`bg-white p-6 transition-all duration-300 ${
                 isDismissing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
@@ -214,7 +214,7 @@ export default function TopOpportunitiesSection() {
           </div>
 
           {/* RIGHT: Compact Opportunities List (40%, Vertical Stack) */}
-          <div className="w-[40%] bg-white flex flex-col border-r border-gray-100">
+          <div className="w-[40%] bg-white flex flex-col border-l border-gray-100">
             {compactOpportunities.map((opp, index) => (
               <div
                 key={opp.id}

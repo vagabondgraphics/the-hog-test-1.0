@@ -25,7 +25,7 @@ export default function Dashboard() {
           <div className="border-b border-gray-100">
             {/* Metric Cards Row - No gaps between cards */}
             <div className="flex border-b border-gray-100">
-              <div className="flex-1 border-r border-gray-100">
+              <div className="flex-1">
                 <MetricCard
                   label="Opportunities Found"
                   value={47}
@@ -33,7 +33,7 @@ export default function Dashboard() {
                   href="/opportunities"
                 />
               </div>
-              <div className="flex-1 border-r border-gray-100">
+              <div className="flex-1 border-l border-gray-100">
                 <MetricCard
                   label="Competitive Moves Tracked"
                   value={23}
@@ -41,7 +41,7 @@ export default function Dashboard() {
                   href="/competitors"
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 border-l border-gray-100">
                 <MetricCard
                   label="Active Campaigns"
                   value={8}
@@ -57,12 +57,12 @@ export default function Dashboard() {
             {/* Charts Section - Side by Side */}
             <div className="flex border-b border-gray-100">
               {/* Left Chart - Line Chart */}
-              <div className="flex-1 border-r border-gray-100">
+              <div className="flex-1">
                 <OpportunityLineChart />
               </div>
 
               {/* Right Chart - Stacked Bar Chart */}
-              <div className="flex-1">
+              <div className="flex-1 border-l border-gray-100">
                 <OpportunityTrendGraph />
               </div>
             </div>
