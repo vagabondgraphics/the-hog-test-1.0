@@ -126,18 +126,18 @@ export default function TopOpportunitiesSection() {
 
   return (
     <>
-      {/* Merged Box Container - Sharp Corners, No Shadow */}
-      <div className="border border-gray-100">
-        {/* Section Header */}
-        <div className="border-b border-gray-100 px-6 py-4 flex items-center justify-between bg-white">
+      {/* Merged Box Container - No Border on Container */}
+      <div className="bg-white">
+        {/* Section Header - Has top and bottom borders */}
+        <div className="border-t border-b border-gray-100 px-6 py-4 flex items-center justify-between bg-white">
           <h2 className="text-xl font-bold text-gray-900">Top Opportunities Found:</h2>
           <span className="text-sm text-neutral">Last 24 hours</span>
         </div>
 
         {/* Two-Column Layout: Main (Left) + Compact List (Right) - NO GAPS */}
-        <div className="flex">
+        <div className="flex border-b border-gray-100">
           {/* LEFT: Main Opportunity (60%) - Sharp Corners, White BG */}
-          <div className="w-[60%] border-r border-gray-100">
+          <div className="w-[60%] border-l border-r border-gray-100">
             <div
               className={`bg-white p-6 transition-all duration-300 ${
                 isDismissing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
@@ -214,7 +214,7 @@ export default function TopOpportunitiesSection() {
           </div>
 
           {/* RIGHT: Compact Opportunities List (40%, Vertical Stack) */}
-          <div className="w-[40%] bg-white flex flex-col">
+          <div className="w-[40%] bg-white flex flex-col border-r border-gray-100">
             {compactOpportunities.map((opp, index) => (
               <div
                 key={opp.id}
