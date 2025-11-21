@@ -135,7 +135,7 @@ export default function CompetitorsPage() {
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="font-bold transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm rounded-none"
+                  className="font-bold transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm rounded-lg"
                 >
                   Add Competitor
                 </button>
