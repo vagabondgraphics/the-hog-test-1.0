@@ -123,36 +123,33 @@ export default function CompetitorsPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
 
-        <main className="flex-1 overflow-y-auto bg-[#F8FAFC]">
-          {/* Header Bar - White background, full width */}
-          <div className="bg-white border-b border-[#F2F2F2] px-32 py-16">
-            <div className="flex items-center justify-between max-w-[1200px] mx-auto">
-              <div className="flex items-center gap-12">
-                <h1 className="text-[24px] font-bold text-[#0F172A]">Competitors</h1>
-                <span className="px-12 py-4 bg-[#F3F4F6] text-[#6B7280] text-[12px] font-bold rounded-[16px]">
-                  Last 24 hours
-                </span>
+        <main className="flex-1 overflow-y-auto bg-white">
+          {/* Merged Competitors Section - Full width, no gaps */}
+          <div className="border-b border-gray-100">
+            {/* Header Bar */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+              <div className="flex items-center gap-3">
+                <h2 className="text-xl font-bold text-gray-900">Competitors</h2>
+                <span className="text-xs text-neutral">Last 24 hours</span>
               </div>
-              <div className="flex items-center gap-12">
+              <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-16 py-8 bg-[#1B5066] text-white text-[14px] font-bold rounded-[6px] hover:opacity-90 transition-opacity"
+                  className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm"
                 >
                   Add Competitor
                 </button>
-                <button className="p-8 hover:bg-[#F3F4F6] rounded-[6px] transition-colors">
+                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                   <Bell size={20} weight="regular" />
                 </button>
-                <button className="p-8 hover:bg-[#F3F4F6] rounded-[6px] transition-colors">
-                  <span className="text-[20px]">⋮</span>
+                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
+                  <span className="text-lg">⋮</span>
                 </button>
               </div>
             </div>
-          </div>
 
-          {/* Filter Bar - White background, full width */}
-          <div className="bg-white border-b border-[#F2F2F2] px-32 py-12">
-            <div className="max-w-[1200px] mx-auto">
+            {/* Filter Bar */}
+            <div className="px-6 py-3 border-b border-gray-100">
               <FilterBar
                 competitors={competitors}
                 selectedCompetitor={selectedCompetitor}
@@ -163,29 +160,26 @@ export default function CompetitorsPage() {
                 onTimeframeChange={setSelectedTimeframe}
               />
             </div>
-          </div>
 
-          {/* Activities Feed - Centered with max-width */}
-          <div className="px-32 py-24">
-            <div className="max-w-[1200px] mx-auto">
-              {filteredActivities.length === 0 ? (
-                <div className="text-center py-24">
-                  <p className="text-[16px] text-[#6B7280]">No activities found matching your filters.</p>
-                </div>
-              ) : (
-                filteredActivities.map((activity) => (
-                  <ActivityCard
-                    key={activity.id}
-                    activity={activity}
-                    competitorName={activity.competitorName}
-                    competitorLogo={activity.competitorLogo}
-                    onViewDetails={handleViewDetails}
-                    onAddToReport={handleAddToReport}
-                    onDismiss={handleDismiss}
-                  />
-                ))
-              )}
-            </div>
+            {/* Activities Feed - No gaps, border dividers */}
+            {filteredActivities.length === 0 ? (
+              <div className="text-center py-12 px-6">
+                <p className="text-sm text-neutral">No activities found matching your filters.</p>
+              </div>
+            ) : (
+              filteredActivities.map((activity, index) => (
+                <ActivityCard
+                  key={activity.id}
+                  activity={activity}
+                  competitorName={activity.competitorName}
+                  competitorLogo={activity.competitorLogo}
+                  onViewDetails={handleViewDetails}
+                  onAddToReport={handleAddToReport}
+                  onDismiss={handleDismiss}
+                  isLast={index === filteredActivities.length - 1}
+                />
+              ))
+            )}
           </div>
         </main>
       </div>

@@ -7,6 +7,7 @@ interface ActivityCardProps {
   onViewDetails: (activity: Activity) => void;
   onAddToReport: (activity: Activity) => void;
   onDismiss: (activity: Activity) => void;
+  isLast?: boolean;
 }
 
 export default function ActivityCard({
@@ -15,41 +16,42 @@ export default function ActivityCard({
   competitorLogo,
   onViewDetails,
   onAddToReport,
-  onDismiss
+  onDismiss,
+  isLast = false
 }: ActivityCardProps) {
   const getImpactColor = (impact: string) => {
     switch (impact) {
       case 'High':
-        return 'bg-[#FEE2E2] text-[#7F1D1D]';
+        return 'bg-green-100 text-green-800';
       case 'Medium':
-        return 'bg-[#FEF3C7] text-[#92400E]';
+        return 'bg-yellow-100 text-yellow-800';
       case 'Low':
-        return 'bg-[#F3F4F6] text-[#6B7280]';
+        return 'bg-gray-100 text-gray-600';
       default:
-        return 'bg-[#F3F4F6] text-[#6B7280]';
+        return 'bg-gray-100 text-gray-600';
     }
   };
 
   return (
-    <div className="w-full border border-[#F2F2F2] bg-white p-20 mb-12 hover:border-[#1B5066] transition-colors cursor-pointer rounded-[0px]">
+    <div className={`px-6 py-5 hover:bg-surface-light transition-colors ${!isLast ? 'border-b border-gray-100' : ''}`}>
       {/* Header Row: Logo + Name + Metadata (left) | Impact Badge (right) */}
-      <div className="flex items-start justify-between mb-12">
+      <div className="flex items-start justify-between mb-3">
         {/* Left: Logo + Name + Metadata */}
-        <div className="flex items-start gap-12">
+        <div className="flex items-start gap-3">
           {/* Logo */}
-          <div className="w-48 h-48 rounded-[8px] bg-[#F3F4F6] flex items-center justify-center text-[20px] flex-shrink-0">
+          <div className="w-10 h-10 rounded bg-gray-100 flex items-center justify-center text-lg flex-shrink-0">
             {competitorLogo}
           </div>
 
           {/* Name + Metadata */}
           <div>
-            <h3 className="text-[16px] font-bold text-[#0F172A] mb-6">
+            <h3 className="text-base font-bold text-gray-900 mb-1">
               {competitorName}
             </h3>
 
             {/* Metadata row: Type • Time • Tags */}
-            <div className="flex items-center gap-8 text-[12px] text-[#6B7280]">
-              <span className="px-8 py-2 bg-[#F3F4F6] rounded-[4px] font-bold">
+            <div className="flex items-center gap-2 text-xs text-neutral">
+              <span className="inline-flex items-center px-2 py-1 rounded text-xs font-bold bg-gray-100 text-gray-700">
                 {activity.type}
               </span>
               <span>•</span>
@@ -66,40 +68,40 @@ export default function ActivityCard({
         </div>
 
         {/* Right: Impact Badge */}
-        <span className={`px-10 py-4 text-[12px] font-bold rounded-[4px] flex-shrink-0 ${getImpactColor(activity.impact)}`}>
+        <span className={`inline-flex items-center px-2 py-1 rounded text-xs font-bold flex-shrink-0 ${getImpactColor(activity.impact)}`}>
           {activity.impact} Impact
         </span>
       </div>
 
       {/* Title */}
-      <h4 className="text-[16px] font-bold text-[#0F172A] mb-8 leading-[24px] line-clamp-2">
+      <h4 className="text-base font-bold text-gray-900 mb-2 leading-tight line-clamp-2">
         {activity.title}
       </h4>
 
       {/* Summary */}
-      <p className="text-[14px] text-[#6B7280] mb-16 leading-[20px] line-clamp-2">
+      <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-2">
         {activity.summary}
       </p>
 
       {/* Action Buttons */}
-      <div className="flex items-center gap-12">
+      <div className="flex items-center gap-3">
         <button
           onClick={() => onViewDetails(activity)}
-          className="px-16 py-8 bg-[#1B5066] text-white text-[14px] font-bold rounded-[6px] hover:opacity-90 transition-opacity"
+          className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm"
         >
           View Details
         </button>
 
         <button
           onClick={() => onAddToReport(activity)}
-          className="px-16 py-8 border border-[#1B5066] bg-white text-[#1B5066] text-[14px] font-bold rounded-[6px] hover:bg-[#F0F9FF] transition-colors"
+          className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-white text-primary border border-primary h-10 px-6 text-sm"
         >
           Add to Report
         </button>
 
         <button
           onClick={() => onDismiss(activity)}
-          className="text-[14px] font-bold text-[#6B7280] hover:text-[#EF4444] transition-colors"
+          className="font-bold text-sm text-neutral hover:text-danger transition-colors"
         >
           Dismiss
         </button>
