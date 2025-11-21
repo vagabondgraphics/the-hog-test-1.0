@@ -60,16 +60,28 @@ export default function CompetitorsPage() {
   }, [allActivities, selectedCompetitor, selectedActivity, selectedTimeframe]);
 
   const handleAddCompetitor = (data: { name: string; website: string; keywords: string[] }) => {
+    // Create initial activity for the new competitor
+    const initialActivity: Activity = {
+      id: `activity-${Date.now()}`,
+      type: 'New Competitor',
+      title: `Started tracking ${data.name}`,
+      summary: `Now monitoring ${data.name} for activity on: ${data.keywords.join(', ')}`,
+      timestamp: 'Just now',
+      impact: 'High',
+      tags: data.keywords,
+      url: data.website
+    };
+
     const newCompetitor: Competitor = {
       id: `comp-${Date.now()}`,
       name: data.name,
-      logo: '🆕',
+      logo: data.name.charAt(0).toUpperCase(),
       website: data.website,
       keywords: data.keywords,
-      activities: []
+      activities: [initialActivity]
     };
 
-    setCompetitors([...competitors, newCompetitor]);
+    setCompetitors([newCompetitor, ...competitors]);
     setIsModalOpen(false);
 
     // Show success toast
@@ -136,7 +148,8 @@ export default function CompetitorsPage() {
       <Sidebar />
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <main className="flex-1 overflow-y-auto bg-white">
+        {/* Fixed Header - Doesn't scroll */}
+        <div className="flex-shrink-0">
           {/* Compact Combined Header */}
           <div className="bg-white border-b border-[#F2F2F2] px-6 py-3">
             <div className="flex items-center justify-between">
@@ -170,7 +183,7 @@ export default function CompetitorsPage() {
             </div>
           </div>
 
-          {/* Filter Bar - No wrapper, no extra border */}
+          {/* Filter Bar - Fixed, doesn't scroll */}
           <FilterBar
             competitors={competitors}
             selectedCompetitor={selectedCompetitor}
@@ -181,7 +194,10 @@ export default function CompetitorsPage() {
             onTimeframeChange={setSelectedTimeframe}
             onClearFilters={handleClearFilters}
           />
+        </div>
 
+        {/* Scrollable Content Area */}
+        <main className="flex-1 overflow-y-auto bg-white">
           {/* Activities Feed - No gap, no outer border */}
           <div className="bg-white">
             <div className="max-w-[1000px] mx-auto">
