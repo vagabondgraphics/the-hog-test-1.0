@@ -8,7 +8,7 @@ import ActivityCard from '@/components/competitors/ActivityCard';
 import FilterBar from '@/components/competitors/FilterBar';
 import { Competitor, Activity } from '@/types/competitor';
 import competitorsData from '@/data/competitors.json';
-import { Bell } from '@phosphor-icons/react';
+import { Bell, CaretUp, CaretDown } from '@phosphor-icons/react';
 
 export default function CompetitorsPage() {
   const [competitors, setCompetitors] = useState<Competitor[]>(competitorsData as Competitor[]);
@@ -123,17 +123,28 @@ export default function CompetitorsPage() {
           {/* Compact Combined Header */}
           <div className="bg-white border-b border-[#F2F2F2] px-6 py-3">
             <div className="flex items-center justify-between">
-              {/* Left: Logo + Title + Time Badge */}
+              {/* Left: Logo + Title + Nav Buttons + Time Badge */}
               <div className="flex items-center gap-3">
                 <h1 className="text-base font-bold text-[#0F172A]">THE HOG</h1>
                 <span className="text-[#6B7280]">•</span>
                 <h2 className="text-base font-bold text-[#0F172A]">Competitors</h2>
+
+                {/* Navigation Buttons */}
+                <div className="flex items-center gap-1">
+                  <button className="w-6 h-6 bg-white border border-[#E5E7EB] rounded flex items-center justify-center hover:bg-[#F3F4F6] hover:border-[#1B5066] transition-colors">
+                    <CaretUp size={16} weight="bold" className="text-[#6B7280]" />
+                  </button>
+                  <button className="w-6 h-6 bg-white border border-[#E5E7EB] rounded flex items-center justify-center hover:bg-[#F3F4F6] hover:border-[#1B5066] transition-colors">
+                    <CaretDown size={16} weight="bold" className="text-[#6B7280]" />
+                  </button>
+                </div>
+
                 <span className="px-2 py-1 bg-[#F3F4F6] text-[#6B7280] text-xs rounded-full">
                   Last 24 hours
                 </span>
               </div>
 
-              {/* Right: Add Competitor Button + Icons */}
+              {/* Right: Add Competitor Button + Bell Icon (removed three-dot menu) */}
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
@@ -143,9 +154,6 @@ export default function CompetitorsPage() {
                 </button>
                 <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
                   <Bell size={20} weight="regular" />
-                </button>
-                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
-                  <span className="text-lg">⋮</span>
                 </button>
               </div>
             </div>

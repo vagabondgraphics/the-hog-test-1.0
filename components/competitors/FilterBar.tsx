@@ -125,19 +125,6 @@ export default function FilterBar({
         </div>
       </div>
 
-      {/* Spacer */}
-      <div className="flex-1"></div>
-
-      {/* View Settings Button - NO CHEVRON */}
-      <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066]">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
-          <path d="M8 10a2 2 0 100-4 2 2 0 000 4z" stroke="#6B7280" strokeWidth="1"/>
-          <path d="M14 8a6 6 0 11-12 0 6 6 0 0112 0z" stroke="#6B7280" strokeWidth="1"/>
-        </svg>
-        <span className="text-[12px] font-bold leading-4 text-[#1E293B]">
-          View settings
-        </span>
-      </button>
     </div>
   );
 }
