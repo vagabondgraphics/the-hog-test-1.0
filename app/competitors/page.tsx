@@ -1,16 +1,22 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { useNavigationHistory } from '@/contexts/NavigationHistoryContext';
 import Sidebar from '@/components/Sidebar';
 import EmptyStateCompetitors from '@/components/empty-states/EmptyStateCompetitors';
 import AddCompetitorModal from '@/components/competitors/AddCompetitorModal';
 import ActivityCard from '@/components/competitors/ActivityCard';
 import FilterBar from '@/components/competitors/FilterBar';
+import NavigationArrows from '@/components/NavigationArrows';
 import { Competitor, Activity } from '@/types/competitor';
 import competitorsData from '@/data/competitors.json';
-import { Bell, CaretUp, CaretDown } from '@phosphor-icons/react';
+import { Bell } from '@phosphor-icons/react';
 
 export default function CompetitorsPage() {
+  const pathname = usePathname();
+  const { pushHistory } = useNavigationHistory();
+
   const [competitors, setCompetitors] = useState<Competitor[]>(competitorsData as Competitor[]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCompetitor, setSelectedCompetitor] = useState('all');
@@ -18,6 +24,11 @@ export default function CompetitorsPage() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('7days');
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+
+  // Track page visits for navigation history
+  useEffect(() => {
+    pushHistory(pathname);
+  }, [pathname, pushHistory]);
 
   // Check if empty state should be shown (initially or when all competitors removed)
   const isEmpty = competitors.length === 0;
@@ -129,28 +140,22 @@ export default function CompetitorsPage() {
           {/* Compact Combined Header */}
           <div className="bg-white border-b border-[#F2F2F2] px-6 py-3">
             <div className="flex items-center justify-between">
-              {/* Left: Logo + Title + Nav Buttons + Time Badge */}
+              {/* Left: Logo + Nav Arrows + Title + Time Badge */}
               <div className="flex items-center gap-3">
                 <h1 className="text-base font-bold text-[#0F172A]">THE HOG</h1>
                 <span className="text-[#6B7280]">•</span>
-                <h2 className="text-base font-bold text-[#0F172A]">Competitors</h2>
 
-                {/* Navigation Buttons */}
-                <div className="flex items-center gap-1">
-                  <button className="w-6 h-6 bg-white border border-[#E5E7EB] rounded flex items-center justify-center hover:bg-[#F3F4F6] hover:border-[#1B5066] transition-colors">
-                    <CaretUp size={16} weight="bold" className="text-[#6B7280]" />
-                  </button>
-                  <button className="w-6 h-6 bg-white border border-[#E5E7EB] rounded flex items-center justify-center hover:bg-[#F3F4F6] hover:border-[#1B5066] transition-colors">
-                    <CaretDown size={16} weight="bold" className="text-[#6B7280]" />
-                  </button>
-                </div>
+                {/* Navigation Arrows (Back/Forward) */}
+                <NavigationArrows />
+
+                <h2 className="text-base font-bold text-[#0F172A]">Competitors</h2>
 
                 <span className="px-2 py-1 bg-[#F3F4F6] text-[#6B7280] text-xs rounded-full">
                   Last 24 hours
                 </span>
               </div>
 
-              {/* Right: Add Competitor Button + Bell Icon (removed three-dot menu) */}
+              {/* Right: Add Competitor Button + Bell Icon */}
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}

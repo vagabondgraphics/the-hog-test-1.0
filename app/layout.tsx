@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { NavigationHistoryProvider } from "@/contexts/NavigationHistoryContext";
 
 export const metadata: Metadata = {
   title: "The Hog - GTM Command Center",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <NavigationHistoryProvider>
+          {children}
+        </NavigationHistoryProvider>
       </body>
     </html>
   );
