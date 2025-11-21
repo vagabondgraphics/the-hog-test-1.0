@@ -8,6 +8,7 @@ interface ActivityCardProps {
   onAddToReport: (activity: Activity) => void;
   onDismiss: (activity: Activity) => void;
   isLast?: boolean;
+  isFirst?: boolean;
 }
 
 export default function ActivityCard({
@@ -17,7 +18,8 @@ export default function ActivityCard({
   onViewDetails,
   onAddToReport,
   onDismiss,
-  isLast = false
+  isLast = false,
+  isFirst = false
 }: ActivityCardProps) {
   const getImpactColor = (impact: string) => {
     switch (impact) {
@@ -33,9 +35,9 @@ export default function ActivityCard({
   };
 
   return (
-    <div className={`px-6 py-4 hover:bg-gray-50 transition-colors cursor-pointer ${!isLast ? 'border-b border-gray-200' : ''}`}>
+    <div className={`${isFirst ? 'px-6 py-6' : 'px-6 py-5'} hover:bg-gray-50 transition-colors ${!isLast ? 'border-b border-gray-200' : ''}`}>
       {/* Header Row: Logo + Name + Metadata (left) | Impact Badge (right) */}
-      <div className="flex items-start justify-between mb-2">
+      <div className="flex items-start justify-between mb-3">
         {/* Left: Logo + Name + Metadata */}
         <div className="flex items-start gap-3">
           {/* Logo */}
@@ -74,9 +76,38 @@ export default function ActivityCard({
       </div>
 
       {/* Title */}
-      <h4 className="text-base text-gray-900 leading-tight truncate">
+      <h4 className="text-base font-bold text-gray-900 mb-2 leading-tight line-clamp-2">
         {activity.title}
       </h4>
+
+      {/* Summary */}
+      <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-2">
+        {activity.summary}
+      </p>
+
+      {/* Action Buttons */}
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => onViewDetails(activity)}
+          className="font-bold transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm rounded-lg"
+        >
+          View Details
+        </button>
+
+        <button
+          onClick={() => onAddToReport(activity)}
+          className="font-bold transition-opacity hover:opacity-90 bg-white text-primary border border-primary h-10 px-6 text-sm rounded-lg"
+        >
+          Add to Report
+        </button>
+
+        <button
+          onClick={() => onDismiss(activity)}
+          className="font-bold text-sm text-neutral hover:text-danger transition-colors"
+        >
+          Dismiss
+        </button>
+      </div>
     </div>
   );
 }

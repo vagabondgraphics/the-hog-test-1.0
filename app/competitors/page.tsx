@@ -123,11 +123,10 @@ export default function CompetitorsPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
 
-        <main className="flex-1 overflow-y-auto bg-white">
-          {/* Merged Competitors Section - Full width, no gaps */}
-          <div className="max-w-[1200px] mx-auto w-full border-b border-gray-200">
-            {/* Header Bar */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+        <main className="flex-1 overflow-y-auto bg-surface-light">
+          {/* Competitors Section Header */}
+          <div className="bg-white border-b border-gray-200">
+            <div className="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <h2 className="text-xl font-bold text-gray-900">Competitors</h2>
                 <span className="text-xs text-neutral">Last 24 hours</span>
@@ -147,9 +146,11 @@ export default function CompetitorsPage() {
                 </button>
               </div>
             </div>
+          </div>
 
-            {/* Filter Bar */}
-            <div className="px-6 py-3 border-b border-gray-200">
+          {/* Filter Bar */}
+          <div className="bg-white border-b border-gray-200">
+            <div className="max-w-[1000px] mx-auto px-6 py-3">
               <FilterBar
                 competitors={competitors}
                 selectedCompetitor={selectedCompetitor}
@@ -160,26 +161,31 @@ export default function CompetitorsPage() {
                 onTimeframeChange={setSelectedTimeframe}
               />
             </div>
+          </div>
 
-            {/* Activities Feed - No gaps, border dividers */}
-            {filteredActivities.length === 0 ? (
-              <div className="text-center py-12 px-6">
-                <p className="text-sm text-neutral">No activities found matching your filters.</p>
-              </div>
-            ) : (
-              filteredActivities.map((activity, index) => (
-                <ActivityCard
-                  key={activity.id}
-                  activity={activity}
-                  competitorName={activity.competitorName}
-                  competitorLogo={activity.competitorLogo}
-                  onViewDetails={handleViewDetails}
-                  onAddToReport={handleAddToReport}
-                  onDismiss={handleDismiss}
-                  isLast={index === filteredActivities.length - 1}
-                />
-              ))
-            )}
+          {/* Activities Feed - Centered, narrower width */}
+          <div className="py-6">
+            <div className="max-w-[1000px] mx-auto bg-white border border-gray-200">
+              {filteredActivities.length === 0 ? (
+                <div className="text-center py-12 px-6">
+                  <p className="text-sm text-neutral">No activities found matching your filters.</p>
+                </div>
+              ) : (
+                filteredActivities.map((activity, index) => (
+                  <ActivityCard
+                    key={activity.id}
+                    activity={activity}
+                    competitorName={activity.competitorName}
+                    competitorLogo={activity.competitorLogo}
+                    onViewDetails={handleViewDetails}
+                    onAddToReport={handleAddToReport}
+                    onDismiss={handleDismiss}
+                    isFirst={index === 0}
+                    isLast={index === filteredActivities.length - 1}
+                  />
+                ))
+              )}
+            </div>
           </div>
         </main>
       </div>
