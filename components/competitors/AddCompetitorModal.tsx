@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { X } from '@phosphor-icons/react';
+import { useState, useEffect } from 'react';
+import { X, Plus } from '@phosphor-icons/react';
 
 interface AddCompetitorModalProps {
   isOpen: boolean;
@@ -10,166 +10,216 @@ interface AddCompetitorModalProps {
 }
 
 export default function AddCompetitorModal({ isOpen, onClose, onSubmit }: AddCompetitorModalProps) {
-  const [competitorName, setCompetitorName] = useState('');
-  const [websiteURL, setWebsiteURL] = useState('');
-  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
+  const [name, setName] = useState('');
+  const [website, setWebsite] = useState('');
   const [keywordInput, setKeywordInput] = useState('');
+  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
 
-  const suggestions = ['pricing', 'product', 'content', 'social'];
+  const suggestedKeywords = ['pricing', 'product', 'content', 'social'];
 
-  const addKeyword = (keyword: string) => {
+  // Form validation: All 3 fields must be filled
+  const isFormValid = name.trim() !== '' && website.trim() !== '' && selectedKeywords.length > 0;
+
+  const handleAddKeyword = (keyword: string) => {
     if (!selectedKeywords.includes(keyword)) {
       setSelectedKeywords([...selectedKeywords, keyword]);
     }
   };
 
-  const removeKeyword = (keyword: string) => {
+  const handleRemoveKeyword = (keyword: string) => {
     setSelectedKeywords(selectedKeywords.filter(k => k !== keyword));
   };
 
-  const handleKeywordInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && keywordInput.trim()) {
-      e.preventDefault();
-      addKeyword(keywordInput.trim());
-      setKeywordInput('');
-    }
-  };
-
   const handleSubmit = () => {
-    if (!competitorName || !websiteURL) {
-      alert('Please fill all required fields');
-      return;
-    }
+    if (!isFormValid) return;
 
     onSubmit({
-      name: competitorName,
-      website: websiteURL,
+      name: name.trim(),
+      website: website.trim(),
       keywords: selectedKeywords
     });
 
     // Reset form
-    setCompetitorName('');
-    setWebsiteURL('');
-    setSelectedKeywords([]);
+    setName('');
+    setWebsite('');
     setKeywordInput('');
+    setSelectedKeywords([]);
   };
 
-  const handleCancel = () => {
-    setCompetitorName('');
-    setWebsiteURL('');
-    setSelectedKeywords([]);
+  const handleClose = () => {
+    setName('');
+    setWebsite('');
     setKeywordInput('');
+    setSelectedKeywords([]);
     onClose();
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      handleClose();
+    }
+  };
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white w-[600px] rounded-[8px] p-32">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-24">
-          <h2 className="text-[20px] font-bold text-[#0F172A]">Add Competitor</h2>
-          <button
-            onClick={handleCancel}
-            className="text-[#6B7280] hover:text-[#0F172A] transition-colors"
+    <>
+      {/* Overlay - Black with 20% opacity */}
+      <div
+        className="fixed inset-0 bg-black bg-opacity-20 z-40"
+        onClick={handleClose}
+        onKeyDown={handleKeyDown}
+        role="presentation"
+        tabIndex={-1}
+      />
+
+      {/* Modal Container */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+        <div
+          className="pointer-events-auto"
+          style={{
+            width: '685px',
+            padding: '2px',
+            background: '#FFFFFF',
+            boxShadow: '0px 0px 30px rgba(178, 178, 179, 0.75)',
+            borderRadius: '16px',
+          }}
+        >
+          {/* Card */}
+          <div
+            className="bg-white border-2 border-[#F2F2F2] rounded-[14px] flex flex-col"
+            style={{ width: '681px', height: '424px' }}
           >
-            <X size={20} weight="bold" />
-          </button>
-        </div>
-
-        {/* Competitor Name Input */}
-        <div className="mb-24">
-          <label className="block text-[14px] font-bold text-[#0F172A] mb-8">
-            Competitor Name
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Text"
-            value={competitorName}
-            onChange={(e) => setCompetitorName(e.target.value)}
-            className="w-full h-40 px-12 border border-[#F2F2F2] rounded-[6px] text-[14px] text-[#0F172A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#1B5066]"
-          />
-        </div>
-
-        {/* Website URL Input */}
-        <div className="mb-24">
-          <label className="block text-[14px] font-bold text-[#0F172A] mb-8">
-            Website URL
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Text"
-            value={websiteURL}
-            onChange={(e) => setWebsiteURL(e.target.value)}
-            className="w-full h-40 px-12 border border-[#F2F2F2] rounded-[6px] text-[14px] text-[#0F172A] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#1B5066]"
-          />
-        </div>
-
-        {/* Keywords Input with Tag Chips */}
-        <div className="mb-16">
-          <label className="block text-[14px] font-bold text-[#0F172A] mb-8">
-            Keywords to Track
-          </label>
-          <div className="w-full min-h-40 px-12 py-8 border border-[#F2F2F2] rounded-[6px] flex flex-wrap gap-8 items-center">
-            {selectedKeywords.map((keyword) => (
-              <span
-                key={keyword}
-                className="inline-flex items-center gap-4 bg-[#F3F4F6] text-[#0F172A] text-[12px] font-bold px-8 py-4 rounded-[4px]"
-              >
-                {keyword}
-                <button
-                  onClick={() => removeKeyword(keyword)}
-                  className="hover:text-[#EF4444]"
-                >
-                  ×
-                </button>
-              </span>
-            ))}
-            <input
-              type="text"
-              placeholder="Enter Text"
-              value={keywordInput}
-              onChange={(e) => setKeywordInput(e.target.value)}
-              onKeyDown={handleKeywordInputKeyDown}
-              className="flex-1 min-w-120 h-24 text-[14px] outline-none"
-            />
-          </div>
-        </div>
-
-        {/* Suggestion Chips */}
-        <div className="mb-24">
-          <label className="block text-[14px] text-[#6B7280] mb-8">Suggestions</label>
-          <div className="flex flex-wrap gap-8">
-            {suggestions.map((keyword) => (
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-[10px] border-b border-[#F2F2F2]">
+              <h2 className="text-[16px] font-bold text-[#0F172A]">Add Competitor</h2>
               <button
-                key={keyword}
-                onClick={() => addKeyword(keyword)}
-                disabled={selectedKeywords.includes(keyword)}
-                className="inline-flex items-center gap-4 bg-white border border-[#F2F2F2] text-[#0F172A] text-[12px] font-bold px-8 py-4 rounded-[4px] hover:bg-[#F8FAFC] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                onClick={handleClose}
+                className="w-8 h-8 bg-white rounded-[20px] flex items-center justify-center hover:bg-[#F3F4F6] transition-colors"
+                aria-label="Close modal"
               >
-                {keyword} +
+                <X size={16} weight="bold" className="text-[#000000]" />
               </button>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Footer Buttons */}
-        <div className="flex justify-end gap-12">
-          <button
-            onClick={handleCancel}
-            className="px-16 py-8 text-[14px] font-bold text-[#6B7280] hover:text-[#0F172A] transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleSubmit}
-            className="px-24 py-8 bg-[#1B5066] text-white text-[14px] font-bold rounded-[6px] hover:opacity-90 transition-opacity"
-          >
-            Start Tracking
-          </button>
+            {/* Body */}
+            <div className="flex-1 px-6 py-4 flex flex-col gap-4 overflow-y-auto">
+              {/* Competitor Name Field */}
+              <div className="flex flex-col gap-2">
+                <label className="text-[14px] text-[#6B7280]">
+                  Competitor Name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter Text"
+                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-[#1B5066]"
+                />
+              </div>
+
+              {/* Website URL Field */}
+              <div className="flex flex-col gap-2">
+                <label className="text-[14px] text-[#6B7280]">
+                  Website URL
+                </label>
+                <input
+                  type="url"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  placeholder="Enter Text"
+                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-[#1B5066]"
+                />
+              </div>
+
+              {/* Keywords to Track Field */}
+              <div className="flex flex-col gap-2">
+                <label className="text-[14px] text-[#6B7280]">
+                  Keywords to Track
+                </label>
+                <input
+                  type="text"
+                  value={keywordInput}
+                  onChange={(e) => setKeywordInput(e.target.value)}
+                  placeholder="Enter Text"
+                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-[#1B5066]"
+                />
+
+                {/* Selected Keywords */}
+                {selectedKeywords.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {selectedKeywords.map((keyword) => (
+                      <button
+                        key={keyword}
+                        onClick={() => handleRemoveKeyword(keyword)}
+                        className="px-2 py-1 bg-[#1B5066] text-white text-[12px] rounded-[8px] flex items-center gap-1 hover:opacity-80 transition-opacity"
+                      >
+                        {keyword}
+                        <X size={12} weight="bold" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Suggestions */}
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-[12px] text-[#6B7280]">Suggestions</span>
+                  {suggestedKeywords.map((keyword) => (
+                    <button
+                      key={keyword}
+                      onClick={() => handleAddKeyword(keyword)}
+                      disabled={selectedKeywords.includes(keyword)}
+                      className={`px-2 py-1 rounded-[8px] flex items-center gap-1 text-[12px] transition-all ${
+                        selectedKeywords.includes(keyword)
+                          ? 'bg-[#E5E7EB] text-[#9CA3AF] cursor-not-allowed'
+                          : 'bg-[#F2F2F2] text-[#464A53] hover:bg-[#E5E7EB]'
+                      }`}
+                    >
+                      {keyword}
+                      <Plus size={12} weight="bold" className="text-[#464A53]" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="flex items-center justify-end gap-[10px] px-4 py-[10px] bg-[#FAFAFA] border-t border-[#F2F2F2]">
+              <button
+                onClick={handleClose}
+                className="px-4 py-1 h-8 bg-white border border-[#ACB0B9] rounded-[4px] text-[16px] text-[#1E293B] hover:bg-[#F3F4F6] transition-colors"
+                style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSubmit}
+                disabled={!isFormValid}
+                className={`px-4 py-1 h-8 rounded-[4px] text-[16px] text-white transition-all ${
+                  isFormValid
+                    ? 'bg-[#1B5066] hover:opacity-90 cursor-pointer'
+                    : 'bg-[#C3E2EF] cursor-not-allowed'
+                }`}
+                style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}
+              >
+                Start Tracking
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
