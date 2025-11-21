@@ -1,4 +1,3 @@
-import { Gear } from '@phosphor-icons/react';
 import { Competitor } from '@/types/competitor';
 
 interface FilterBarProps {
@@ -38,55 +37,106 @@ export default function FilterBar({
   ];
 
   return (
-    <div className="flex items-center justify-between mb-24">
-      <div className="flex items-center gap-12">
-        <span className="text-[14px] text-[#6B7280]">Filters</span>
+    <div className="flex items-center px-6 py-[10px] gap-4 border-b border-[#EEEFF1]">
+      {/* Filters Label */}
+      <span className="text-[12px] font-bold leading-4 text-[#6B7280]">
+        Filters
+      </span>
 
-        {/* Competitor Filter */}
-        <select
-          value={selectedCompetitor}
-          onChange={(e) => onCompetitorChange(e.target.value)}
-          className="px-12 py-8 border border-[#F2F2F2] rounded-md text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
-        >
-          <option value="all">All Competitors</option>
-          {competitors.map((competitor) => (
-            <option key={competitor.id} value={competitor.id}>
-              {competitor.name}
-            </option>
-          ))}
-        </select>
+      {/* Filter Buttons Container */}
+      <div className="flex items-center gap-[10px]">
+        {/* All Competitors Dropdown */}
+        <div className="relative">
+          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+              <path d="M2.67 2.67h4v4h-4v-4zm0 6.66h4v4h-4v-4zm6.66-6.66h4v4h-4v-4zm0 6.66h4v4h-4v-4z" stroke="#6B7280" strokeWidth="1"/>
+            </svg>
+            <span className="text-[12px] font-bold leading-4 text-[#1E293B]">
+              {selectedCompetitor === 'all' ? 'All Competitors' : competitors.find(c => c.id === selectedCompetitor)?.name}
+            </span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+              <path d="M4 6l4 4 4-4" stroke="#6B7280" strokeWidth="2"/>
+            </svg>
+          </button>
+          <select
+            value={selectedCompetitor}
+            onChange={(e) => onCompetitorChange(e.target.value)}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          >
+            <option value="all">All Competitors</option>
+            {competitors.map((competitor) => (
+              <option key={competitor.id} value={competitor.id}>
+                {competitor.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        {/* Activity Type Filter */}
-        <select
-          value={selectedActivity}
-          onChange={(e) => onActivityChange(e.target.value)}
-          className="px-12 py-8 border border-[#F2F2F2] rounded-md text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
-        >
-          {activityTypes.map((type) => (
-            <option key={type} value={type === 'All Activities' ? 'all' : type}>
-              {type}
-            </option>
-          ))}
-        </select>
+        {/* All Activities Dropdown */}
+        <div className="relative">
+          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+              <path d="M2.67 2.67h4v4h-4v-4zm0 6.66h4v4h-4v-4zm6.66-6.66h4v4h-4v-4zm0 6.66h4v4h-4v-4z" stroke="#6B7280" strokeWidth="1"/>
+            </svg>
+            <span className="text-[12px] font-bold leading-4 text-[#1E293B]">
+              {selectedActivity === 'all' ? 'All Activities' : selectedActivity}
+            </span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+              <path d="M4 6l4 4 4-4" stroke="#6B7280" strokeWidth="2"/>
+            </svg>
+          </button>
+          <select
+            value={selectedActivity}
+            onChange={(e) => onActivityChange(e.target.value)}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          >
+            {activityTypes.map((type) => (
+              <option key={type} value={type === 'All Activities' ? 'all' : type}>
+                {type}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        {/* Timeframe Filter */}
-        <select
-          value={selectedTimeframe}
-          onChange={(e) => onTimeframeChange(e.target.value)}
-          className="px-12 py-8 border border-[#F2F2F2] rounded-md text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
-        >
-          {timeframes.map((timeframe) => (
-            <option key={timeframe.value} value={timeframe.value}>
-              {timeframe.label}
-            </option>
-          ))}
-        </select>
+        {/* Last 7 Days Dropdown */}
+        <div className="relative">
+          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+              <path d="M2.67 2.67h4v4h-4v-4zm0 6.66h4v4h-4v-4zm6.66-6.66h4v4h-4v-4zm0 6.66h4v4h-4v-4z" stroke="#6B7280" strokeWidth="1"/>
+            </svg>
+            <span className="text-[12px] font-bold leading-4 text-[#1E293B]">
+              {timeframes.find(t => t.value === selectedTimeframe)?.label || 'Last 7 Days'}
+            </span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+              <path d="M4 6l4 4 4-4" stroke="#6B7280" strokeWidth="2"/>
+            </svg>
+          </button>
+          <select
+            value={selectedTimeframe}
+            onChange={(e) => onTimeframeChange(e.target.value)}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          >
+            {timeframes.map((timeframe) => (
+              <option key={timeframe.value} value={timeframe.value}>
+                {timeframe.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      {/* View Settings Button */}
-      <button className="flex items-center gap-8 text-[14px] text-[#6B7280] hover:text-[#0F172A] transition-colors">
-        <Gear size={16} weight="regular" />
-        View settings
+      {/* Spacer */}
+      <div className="flex-1"></div>
+
+      {/* View Settings Button - NO CHEVRON */}
+      <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066]">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+          <path d="M8 10a2 2 0 100-4 2 2 0 000 4z" stroke="#6B7280" strokeWidth="1"/>
+          <path d="M14 8a6 6 0 11-12 0 6 6 0 0112 0z" stroke="#6B7280" strokeWidth="1"/>
+        </svg>
+        <span className="text-[12px] font-bold leading-4 text-[#1E293B]">
+          View settings
+        </span>
       </button>
     </div>
   );
