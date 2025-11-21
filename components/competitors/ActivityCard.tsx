@@ -33,13 +33,13 @@ export default function ActivityCard({
   };
 
   return (
-    <div className={`px-6 py-5 hover:bg-surface-light transition-colors ${!isLast ? 'border-b border-gray-100' : ''}`}>
+    <div className={`px-6 py-5 hover:bg-surface-light hover:shadow-lg hover:border-l-4 hover:border-primary transition-all ${!isLast ? 'border-b border-gray-100' : ''}`}>
       {/* Header Row: Logo + Name + Metadata (left) | Impact Badge (right) */}
       <div className="flex items-start justify-between mb-3">
         {/* Left: Logo + Name + Metadata */}
         <div className="flex items-start gap-3">
           {/* Logo */}
-          <div className="w-10 h-10 rounded bg-gray-100 flex items-center justify-center text-lg flex-shrink-0">
+          <div className="w-10 h-10 bg-gray-100 flex items-center justify-center text-lg flex-shrink-0">
             {competitorLogo}
           </div>
 
@@ -51,7 +51,7 @@ export default function ActivityCard({
 
             {/* Metadata row: Type • Time • Tags */}
             <div className="flex items-center gap-2 text-xs text-neutral">
-              <span className="inline-flex items-center px-2 py-1 rounded text-xs font-bold bg-gray-100 text-gray-700">
+              <span className="inline-flex items-center px-2 py-1 text-xs font-bold bg-gray-100 text-gray-700 rounded-none">
                 {activity.type}
               </span>
               <span>•</span>
@@ -68,7 +68,7 @@ export default function ActivityCard({
         </div>
 
         {/* Right: Impact Badge */}
-        <span className={`inline-flex items-center px-2 py-1 rounded text-xs font-bold flex-shrink-0 ${getImpactColor(activity.impact)}`}>
+        <span className={`inline-flex items-center px-2 py-1 text-xs font-bold flex-shrink-0 rounded-none ${getImpactColor(activity.impact)}`}>
           {activity.impact} Impact
         </span>
       </div>
@@ -87,14 +87,14 @@ export default function ActivityCard({
       <div className="flex items-center gap-3">
         <button
           onClick={() => onViewDetails(activity)}
-          className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm"
+          className="font-bold transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm rounded-none"
         >
           View Details
         </button>
 
         <button
           onClick={() => onAddToReport(activity)}
-          className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-white text-primary border border-primary h-10 px-6 text-sm"
+          className="font-bold transition-opacity hover:opacity-90 bg-white text-primary border border-primary h-10 px-6 text-sm rounded-none"
         >
           Add to Report
         </button>

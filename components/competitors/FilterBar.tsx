@@ -46,7 +46,7 @@ export default function FilterBar({
         <select
           value={selectedCompetitor}
           onChange={(e) => onCompetitorChange(e.target.value)}
-          className="px-12 py-8 border border-[#F2F2F2] rounded-[6px] text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
+          className="px-12 py-8 border border-[#F2F2F2] text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
         >
           <option value="all">All Competitors</option>
           {competitors.map((competitor) => (
@@ -60,7 +60,7 @@ export default function FilterBar({
         <select
           value={selectedActivity}
           onChange={(e) => onActivityChange(e.target.value)}
-          className="px-12 py-8 border border-[#F2F2F2] rounded-[6px] text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
+          className="px-12 py-8 border border-[#F2F2F2] text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
         >
           {activityTypes.map((type) => (
             <option key={type} value={type === 'All Activities' ? 'all' : type}>
@@ -73,7 +73,7 @@ export default function FilterBar({
         <select
           value={selectedTimeframe}
           onChange={(e) => onTimeframeChange(e.target.value)}
-          className="px-12 py-8 border border-[#F2F2F2] rounded-[6px] text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
+          className="px-12 py-8 border border-[#F2F2F2] text-[14px] text-[#0F172A] bg-white focus:outline-none focus:border-[#1B5066]"
         >
           {timeframes.map((timeframe) => (
             <option key={timeframe.value} value={timeframe.value}>

@@ -125,7 +125,7 @@ export default function CompetitorsPage() {
 
         <main className="flex-1 overflow-y-auto bg-white">
           {/* Merged Competitors Section - Full width, no gaps */}
-          <div className="border-b border-gray-100">
+          <div className="max-w-[1200px] mx-auto w-full border-b border-gray-100">
             {/* Header Bar */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
               <div className="flex items-center gap-3">
@@ -135,14 +135,14 @@ export default function CompetitorsPage() {
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm"
+                  className="font-bold transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm rounded-none"
                 >
                   Add Competitor
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
+                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 transition-colors">
                   <Bell size={20} weight="regular" />
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
+                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 transition-colors">
                   <span className="text-lg">⋮</span>
                 </button>
               </div>
