@@ -1,6 +1,6 @@
 export interface Activity {
   id: string;
-  type: 'Blog Post' | 'Product Launch' | 'Video Tutorial' | 'Webinar' | 'E-book' | 'Case Study' | 'Infographic';
+  type: 'Blog Post' | 'Product Launch' | 'Video Tutorial' | 'Webinar' | 'E-book' | 'Case Study' | 'Infographic' | 'New Competitor';
   title: string;
   summary: string;
   timestamp: string;
