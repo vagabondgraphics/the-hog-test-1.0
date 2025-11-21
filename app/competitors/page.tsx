@@ -97,10 +97,9 @@ export default function CompetitorsPage() {
   // Show empty state if no competitors
   if (isEmpty) {
     return (
-      <div className="flex h-screen bg-surface-light">
+      <div className="flex h-screen bg-white">
         <Sidebar />
         <div className="flex-1 flex flex-col overflow-hidden">
-          <Header />
           <main className="flex-1 overflow-y-auto">
             <EmptyStateCompetitors onAddCompetitor={() => setIsModalOpen(true)} />
           </main>
