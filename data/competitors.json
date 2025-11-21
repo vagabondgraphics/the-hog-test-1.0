@@ -1,0 +1,145 @@
+[
+  {
+    "id": "comp-001",
+    "name": "Clay",
+    "logo": "🔷",
+    "website": "clay.com",
+    "keywords": ["pricing", "product", "content"],
+    "activities": [
+      {
+        "id": "act-001",
+        "type": "Blog Post",
+        "title": "How to Build a Lead Enrichment Workflow in 10 Minutes",
+        "summary": "Clay's new template lets you enrich 10,000 leads/month with waterfalls across 50+ data sources. Step-by-step guide includes setup instructions, integration tips, and cost optimization strategies.",
+        "timestamp": "2 hours ago",
+        "impact": "High",
+        "tags": ["Lead Enrichment", "Workflow Automation"],
+        "url": "https://clay.com/blog/lead-enrichment-workflow"
+      },
+      {
+        "id": "act-002",
+        "type": "Video Tutorial",
+        "title": "Advanced Clay Workflows: Multi-Step Enrichment Demo",
+        "summary": "15-minute walkthrough showing how to build complex enrichment sequences with conditional logic, data validation, and custom webhooks.",
+        "timestamp": "1 day ago",
+        "impact": "Medium",
+        "tags": ["Tutorial", "Advanced Features"],
+        "url": "https://clay.com/videos/advanced-workflows"
+      }
+    ]
+  },
+  {
+    "id": "comp-002",
+    "name": "Copy.ai",
+    "logo": "🟧",
+    "website": "copy.ai",
+    "keywords": ["pricing", "product", "social"],
+    "activities": [
+      {
+        "id": "act-003",
+        "type": "Product Launch",
+        "title": "Copy.ai Launches 'Agents Marketplace' with 50+ Pre-Built Workflows",
+        "summary": "New marketplace offers ready-to-use AI agents for sales, marketing, and support teams. Features include instant deployment, customizable templates, and integration with popular CRMs.",
+        "timestamp": "3 days ago",
+        "impact": "High",
+        "tags": ["Product Launch"],
+        "url": "https://copy.ai/product/agents-marketplace"
+      }
+    ]
+  },
+  {
+    "id": "comp-003",
+    "name": "Taylor",
+    "logo": "🟫",
+    "website": "taylor.ai",
+    "keywords": ["data", "visualization", "content"],
+    "activities": [
+      {
+        "id": "act-004",
+        "type": "Video Tutorial",
+        "title": "Mastering Data Visualization with Tableau",
+        "summary": "Comprehensive guide covering advanced Tableau techniques for B2B analytics dashboards. Includes best practices for executive reporting and real-time data integration.",
+        "timestamp": "3 hours ago",
+        "impact": "High",
+        "tags": ["Data Visualization", "Analytics"],
+        "url": "https://taylor.ai/tutorials/tableau-mastery"
+      }
+    ]
+  },
+  {
+    "id": "comp-004",
+    "name": "Jordan",
+    "logo": "🔴",
+    "website": "jordan.io",
+    "keywords": ["funding", "startup", "growth"],
+    "activities": [
+      {
+        "id": "act-005",
+        "type": "Webinar",
+        "title": "Startup Funding 101: Navigating Your First Round",
+        "summary": "90-minute live session covering pitch deck creation, investor outreach strategies, and term sheet negotiation tactics for early-stage founders.",
+        "timestamp": "5 hours ago",
+        "impact": "Low",
+        "tags": ["Fundraising", "Founder Education"],
+        "url": "https://jordan.io/webinars/funding-101"
+      }
+    ]
+  },
+  {
+    "id": "comp-005",
+    "name": "Alex",
+    "logo": "🟣",
+    "website": "alex-seo.com",
+    "keywords": ["seo", "content", "marketing"],
+    "activities": [
+      {
+        "id": "act-006",
+        "type": "E-book",
+        "title": "SEO Strategies for 2023: Stay Ahead of the Curve",
+        "summary": "45-page comprehensive guide covering Google algorithm updates, technical SEO best practices, content optimization strategies, and link building tactics for modern B2B SaaS companies.",
+        "timestamp": "10 hours ago",
+        "impact": "High",
+        "tags": ["SEO", "Content Marketing"],
+        "url": "https://alex-seo.com/ebooks/seo-2023"
+      }
+    ]
+  },
+  {
+    "id": "comp-006",
+    "name": "Jamie",
+    "logo": "🔵",
+    "website": "jamie-marketing.com",
+    "keywords": ["roi", "marketing", "analytics"],
+    "activities": [
+      {
+        "id": "act-007",
+        "type": "Case Study",
+        "title": "How Company X Increased ROI by 150% in 6 Months",
+        "summary": "Detailed breakdown of marketing automation implementation, channel optimization, and attribution modeling that led to dramatic ROI improvements for mid-market B2B SaaS company.",
+        "timestamp": "1 day ago",
+        "impact": "Medium",
+        "tags": ["Case Study", "Marketing Automation"],
+        "url": "https://jamie-marketing.com/case-studies/company-x-roi"
+      }
+    ]
+  },
+  {
+    "id": "comp-007",
+    "name": "Riley",
+    "logo": "🟤",
+    "website": "riley-social.com",
+    "keywords": ["social", "media", "trends"],
+    "activities": [
+      {
+        "id": "act-008",
+        "type": "Infographic",
+        "title": "The Evolution of Social Media: A Decade in Review",
+        "summary": "Visual timeline showcasing major platform changes, algorithm updates, and engagement trend shifts across Facebook, Twitter, LinkedIn, and emerging platforms over the past 10 years.",
+        "timestamp": "2 days ago",
+        "impact": "Low",
+        "tags": ["Social Media", "Trends"],
+        "url": "https://riley-social.com/infographics/social-evolution"
+      }
+    ]
+  }
+]

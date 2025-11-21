@@ -25,7 +25,7 @@ export default function OpportunityList() {
         {opportunities.map((opp) => (
           <div
             key={opp.id}
-            className="flex items-center justify-between py-2 border-b border-gray-200 last:border-0"
+            className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0"
           >
             <div className="text-sm text-gray-700">
               {opp.subreddit}: {opp.title}

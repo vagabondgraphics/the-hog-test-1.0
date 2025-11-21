@@ -4,7 +4,7 @@ import Badge from './Badge';
 
 export default function OpportunityCard() {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-5">
+    <div className="bg-white border border-gray-100 rounded-lg shadow-sm p-5">
       {/* Header with badges */}
       <div className="flex items-center gap-2 mb-3">
         <Badge variant="danger">Hot</Badge>

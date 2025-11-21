@@ -94,7 +94,7 @@ export default function ArchivePage() {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors"
+                className="bg-white border border-gray-100 rounded-lg p-4 hover:border-primary transition-colors"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">

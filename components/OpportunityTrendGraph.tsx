@@ -42,7 +42,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     const total = payload.reduce((sum: number, entry: any) => sum + entry.value, 0);
     return (
-      <div className="bg-white border border-gray-200 rounded-md shadow-lg p-2.5">
+      <div className="bg-white border border-gray-100 rounded-md shadow-lg p-2.5">
         <p className="text-xs font-bold text-gray-900 mb-1.5">{label}</p>
         <p className="text-xs text-gray-600 mb-1.5">Total: <span className="font-bold">{total.toLocaleString()}</span></p>
         {payload.reverse().map((entry: any, index: number) => (

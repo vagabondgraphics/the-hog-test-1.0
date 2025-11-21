@@ -59,7 +59,7 @@ export default function CampaignsPage() {
           <div className="grid grid-cols-3 gap-6">
             {/* Planned Column */}
             <div>
-              <div className="bg-white border border-gray-200 rounded-lg p-4 mb-3">
+              <div className="bg-white border border-gray-100 rounded-lg p-4 mb-3">
                 <h3 className="text-sm font-bold text-gray-900 mb-1">Planned</h3>
                 <p className="text-xs text-neutral">{getCampaignsByStatus('planned').length} campaigns</p>
               </div>
@@ -68,7 +68,7 @@ export default function CampaignsPage() {
                 {getCampaignsByStatus('planned').map((campaign) => (
                   <div
                     key={campaign.id}
-                    className="bg-white border border-gray-200 rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
+                    className="bg-white border border-gray-100 rounded-lg p-4 hover:border-primary transition-colors cursor-pointer"
                   >
                     <h4 className="text-sm font-bold text-gray-900 mb-2">{campaign.title}</h4>
 
@@ -125,7 +125,7 @@ export default function CampaignsPage() {
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-gray-200">
+                    <div className="pt-3 border-t border-gray-100">
                       <div className="flex items-center justify-between text-xs">
                         <span className="text-neutral">Leads:</span>
                         <span className="font-bold text-gray-900">{campaign.leads}</span>
@@ -172,7 +172,7 @@ export default function CampaignsPage() {
                       </div>
                     </div>
 
-                    <div className="pt-3 border-t border-gray-200">
+                    <div className="pt-3 border-t border-gray-100">
                       <div className="flex items-center gap-1 text-xs mb-1">
                         <TrendUp size={14} weight="bold" className="text-success" />
                         <span className="font-bold text-gray-900">{campaign.leads} leads generated</span>

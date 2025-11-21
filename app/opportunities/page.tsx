@@ -59,7 +59,7 @@ export default function AllOpportunities() {
               <select
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
-                className="px-3 py-2 border border-gray-200 rounded-md text-sm"
+                className="px-3 py-2 border border-gray-100 rounded-md text-sm"
               >
                 <option value="all">All Channels</option>
                 <option value="Reddit">Reddit</option>
@@ -74,7 +74,7 @@ export default function AllOpportunities() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-3 py-2 border border-gray-200 rounded-md text-sm"
+                className="px-3 py-2 border border-gray-100 rounded-md text-sm"
               >
                 <option value="score">Score (High to Low)</option>
                 <option value="icpFit">ICP Fit %</option>
@@ -84,9 +84,9 @@ export default function AllOpportunities() {
           </div>
 
           {/* Table */}
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <div className="bg-white border border-gray-100 rounded-lg overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 border-b border-gray-100">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-bold text-gray-700">Title</th>
                   <th className="px-4 py-3 text-left text-xs font-bold text-gray-700">Channel</th>
@@ -96,7 +96,7 @@ export default function AllOpportunities() {
                   <th className="px-4 py-3 text-left text-xs font-bold text-gray-700">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-100">
                 {filteredOpportunities.map((opp) => (
                   <tr key={opp.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-4 py-4">

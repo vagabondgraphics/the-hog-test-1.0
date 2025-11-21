@@ -11,7 +11,7 @@ export default function Card({ children, className = '', hover = false }: CardPr
     <div
       className={`
         bg-white
-        border border-gray-200
+        border border-gray-100
         rounded-lg
         shadow-md
         ${hover ? 'hover:shadow-lg transition-shadow' : ''}

@@ -59,13 +59,13 @@ export default function ActivityFeed() {
   return (
     <div>
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+      <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
         <h2 className="text-lg font-bold text-gray-900">Activity Feed (7)</h2>
         <span className="text-xs text-neutral">Last 24 hours</span>
       </div>
 
       {/* Activities list */}
-      <div className="divide-y divide-gray-200">
+      <div className="divide-y divide-gray-100">
         {activities.map((activity) => (
           <div key={activity.id} className="px-5 py-4 hover:bg-gray-50 transition-colors">
             <div className="flex gap-3">

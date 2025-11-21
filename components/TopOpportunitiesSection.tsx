@@ -115,7 +115,7 @@ export default function TopOpportunitiesSection() {
 
   if (opportunities.length === 0) {
     return (
-      <div className="border-b border-gray-200 p-12 text-center">
+      <div className="border-b border-gray-100 p-12 text-center">
         <div className="text-gray-500">
           <p className="text-lg font-bold mb-2">All caught up!</p>
           <p className="text-sm">No more opportunities to review at the moment.</p>
