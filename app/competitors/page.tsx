@@ -94,6 +94,12 @@ export default function CompetitorsPage() {
     setTimeout(() => setShowToast(false), 3000);
   };
 
+  const handleClearFilters = () => {
+    setSelectedCompetitor('all');
+    setSelectedActivity('all');
+    setSelectedTimeframe('7days');
+  };
+
   // Show empty state if no competitors
   if (isEmpty) {
     return (
@@ -168,6 +174,7 @@ export default function CompetitorsPage() {
             onCompetitorChange={setSelectedCompetitor}
             onActivityChange={setSelectedActivity}
             onTimeframeChange={setSelectedTimeframe}
+            onClearFilters={handleClearFilters}
           />
 
           {/* Activities Feed - No gap, no outer border */}

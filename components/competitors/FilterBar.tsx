@@ -8,6 +8,7 @@ interface FilterBarProps {
   onCompetitorChange: (value: string) => void;
   onActivityChange: (value: string) => void;
   onTimeframeChange: (value: string) => void;
+  onClearFilters?: () => void;
 }
 
 export default function FilterBar({
@@ -17,7 +18,8 @@ export default function FilterBar({
   selectedTimeframe,
   onCompetitorChange,
   onActivityChange,
-  onTimeframeChange
+  onTimeframeChange,
+  onClearFilters
 }: FilterBarProps) {
   const activityTypes = [
     'All Activities',
@@ -123,6 +125,16 @@ export default function FilterBar({
             ))}
           </select>
         </div>
+
+        {/* Clear Filters Button */}
+        {onClearFilters && (
+          <button
+            onClick={onClearFilters}
+            className="text-[12px] font-bold text-[#6B7280] hover:text-[#1B5066] transition-colors ml-2"
+          >
+            Clear filters
+          </button>
+        )}
       </div>
 
     </div>

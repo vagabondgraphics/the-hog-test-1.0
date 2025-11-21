@@ -89,21 +89,21 @@ export default function ActivityCard({
       <div className="flex items-center gap-3">
         <button
           onClick={() => onViewDetails(activity)}
-          className="font-bold transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm rounded-lg"
+          className="px-4 py-2 border border-[#E5E7EB] bg-white text-[#0F172A] text-[14px] font-bold rounded-[6px] hover:border-[#1B5066] hover:text-[#1B5066] transition-colors"
         >
           View Details
         </button>
 
         <button
           onClick={() => onAddToReport(activity)}
-          className="font-bold transition-opacity hover:opacity-90 bg-white text-primary border border-primary h-10 px-6 text-sm rounded-lg"
+          className="px-4 py-2 border border-[#E5E7EB] bg-white text-[#0F172A] text-[14px] font-bold rounded-[6px] hover:border-[#1B5066] hover:text-[#1B5066] transition-colors"
         >
           Add to Report
         </button>
 
         <button
           onClick={() => onDismiss(activity)}
-          className="font-bold text-sm text-neutral hover:text-danger transition-colors"
+          className="text-[14px] font-bold text-[#6B7280] hover:text-[#EF4444] transition-colors"
         >
           Dismiss
         </button>
