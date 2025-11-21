@@ -125,9 +125,9 @@ export default function CompetitorsPage() {
 
         <main className="flex-1 overflow-y-auto bg-white">
           {/* Merged Competitors Section - Full width, no gaps */}
-          <div className="max-w-[1200px] mx-auto w-full border-b border-gray-100">
+          <div className="max-w-[1200px] mx-auto w-full border-b border-gray-200">
             {/* Header Bar */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
               <div className="flex items-center gap-3">
                 <h2 className="text-xl font-bold text-gray-900">Competitors</h2>
                 <span className="text-xs text-neutral">Last 24 hours</span>
@@ -149,7 +149,7 @@ export default function CompetitorsPage() {
             </div>
 
             {/* Filter Bar */}
-            <div className="px-6 py-3 border-b border-gray-100">
+            <div className="px-6 py-3 border-b border-gray-200">
               <FilterBar
                 competitors={competitors}
                 selectedCompetitor={selectedCompetitor}

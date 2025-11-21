@@ -33,7 +33,7 @@ export default function ActivityCard({
   };
 
   return (
-    <div className={`px-6 py-5 hover:bg-gray-50 transition-colors ${!isLast ? 'border-b border-gray-100' : ''}`}>
+    <div className={`px-6 py-5 hover:bg-gray-50 transition-colors ${!isLast ? 'border-b border-gray-200' : ''}`}>
       {/* Header Row: Logo + Name + Metadata (left) | Impact Badge (right) */}
       <div className="flex items-start justify-between mb-3">
         {/* Left: Logo + Name + Metadata */}
