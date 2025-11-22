@@ -1,0 +1,178 @@
+[
+  {
+    "id": "ch-1",
+    "name": "LinkedIn Organic",
+    "status": "Hot",
+    "opportunityScore": 92,
+    "activeOpportunities": 8,
+    "estimatedValue": "$45k",
+    "lastActivity": "2 hours ago",
+    "category": "Social Media",
+    "description": "High engagement on thought leadership content"
+  },
+  {
+    "id": "ch-2",
+    "name": "SEO - Blog",
+    "status": "Hot",
+    "opportunityScore": 88,
+    "activeOpportunities": 12,
+    "estimatedValue": "$67k",
+    "lastActivity": "4 hours ago",
+    "category": "Content",
+    "description": "Top-ranking keywords showing conversion intent"
+  },
+  {
+    "id": "ch-3",
+    "name": "Product Hunt",
+    "status": "Warm",
+    "opportunityScore": 76,
+    "activeOpportunities": 3,
+    "estimatedValue": "$22k",
+    "lastActivity": "1 day ago",
+    "category": "Community",
+    "description": "Launch momentum from recent feature releases"
+  },
+  {
+    "id": "ch-4",
+    "name": "Email Newsletter",
+    "status": "Hot",
+    "opportunityScore": 85,
+    "activeOpportunities": 6,
+    "estimatedValue": "$38k",
+    "lastActivity": "5 hours ago",
+    "category": "Email",
+    "description": "Strong open rates on product update series"
+  },
+  {
+    "id": "ch-5",
+    "name": "Google Ads - Search",
+    "status": "Warm",
+    "opportunityScore": 71,
+    "activeOpportunities": 5,
+    "estimatedValue": "$29k",
+    "lastActivity": "3 hours ago",
+    "category": "Paid Search",
+    "description": "Competitive keywords with improving CTR"
+  },
+  {
+    "id": "ch-6",
+    "name": "YouTube Tutorials",
+    "status": "Cold",
+    "opportunityScore": 58,
+    "activeOpportunities": 2,
+    "estimatedValue": "$12k",
+    "lastActivity": "3 days ago",
+    "category": "Video",
+    "description": "Educational content with growing subscriber base"
+  },
+  {
+    "id": "ch-7",
+    "name": "Webinars",
+    "status": "Warm",
+    "opportunityScore": 79,
+    "activeOpportunities": 4,
+    "estimatedValue": "$31k",
+    "lastActivity": "1 day ago",
+    "category": "Events",
+    "description": "High-intent attendees from target industries"
+  },
+  {
+    "id": "ch-8",
+    "name": "Reddit Communities",
+    "status": "Cold",
+    "opportunityScore": 52,
+    "activeOpportunities": 1,
+    "estimatedValue": "$8k",
+    "lastActivity": "5 days ago",
+    "category": "Community",
+    "description": "Niche subreddits with engaged discussions"
+  },
+  {
+    "id": "ch-9",
+    "name": "Twitter/X",
+    "status": "Warm",
+    "opportunityScore": 68,
+    "activeOpportunities": 7,
+    "estimatedValue": "$25k",
+    "lastActivity": "6 hours ago",
+    "category": "Social Media",
+    "description": "Real-time engagement with industry conversations"
+  },
+  {
+    "id": "ch-10",
+    "name": "Case Studies",
+    "status": "Hot",
+    "opportunityScore": 90,
+    "activeOpportunities": 5,
+    "estimatedValue": "$52k",
+    "lastActivity": "1 hour ago",
+    "category": "Content",
+    "description": "Customer success stories driving enterprise leads"
+  },
+  {
+    "id": "ch-11",
+    "name": "Partner Referrals",
+    "status": "Warm",
+    "opportunityScore": 74,
+    "activeOpportunities": 6,
+    "estimatedValue": "$41k",
+    "lastActivity": "2 days ago",
+    "category": "Partnerships",
+    "description": "Integration partners sending qualified leads"
+  },
+  {
+    "id": "ch-12",
+    "name": "Industry Events",
+    "status": "Cold",
+    "opportunityScore": 61,
+    "activeOpportunities": 2,
+    "estimatedValue": "$18k",
+    "lastActivity": "1 week ago",
+    "category": "Events",
+    "description": "Trade show and conference opportunities"
+  },
+  {
+    "id": "ch-13",
+    "name": "Hacker News",
+    "status": "Warm",
+    "opportunityScore": 67,
+    "activeOpportunities": 4,
+    "estimatedValue": "$19k",
+    "lastActivity": "1 day ago",
+    "category": "Community",
+    "description": "Tech community engagement and product launches"
+  },
+  {
+    "id": "ch-14",
+    "name": "Stack Overflow",
+    "status": "Warm",
+    "opportunityScore": 64,
+    "activeOpportunities": 2,
+    "estimatedValue": "$12k",
+    "lastActivity": "2 days ago",
+    "category": "Community",
+    "description": "Developer community technical support and branding"
+  },
+  {
+    "id": "ch-15",
+    "name": "Medium",
+    "status": "Warm",
+    "opportunityScore": 62,
+    "activeOpportunities": 5,
+    "estimatedValue": "$21k",
+    "lastActivity": "3 days ago",
+    "category": "Content",
+    "description": "Long-form thought leadership and industry insights"
+  },
+  {
+    "id": "ch-16",
+    "name": "Dribbble",
+    "status": "Cold",
+    "opportunityScore": 60,
+    "activeOpportunities": 3,
+    "estimatedValue": "$15k",
+    "lastActivity": "4 days ago",
+    "category": "Community",
+    "description": "Design community showcasing product visuals"
+  }
+]
