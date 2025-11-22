@@ -66,15 +66,15 @@ export default function ChannelCard({ channel, onClick }: ChannelCardProps) {
       {/* Score - Hero with progress bar */}
       <div className="mb-3">
         <div className="flex items-baseline gap-1 mb-2">
-          <span className="text-[28px] font-bold text-[#1B5066] leading-none">
+          <span className="text-[28px] font-bold text-primary leading-none">
             {channel.opportunityScore}
           </span>
-          <span className="text-[12px] text-[#6B7280] font-normal">/100</span>
+          <span className="text-[12px] text-neutral font-normal">/100</span>
         </div>
         {/* Progress bar */}
         <div className="h-1.5 w-full bg-[#F3F4F6] rounded-full overflow-hidden">
           <div
-            className="h-1.5 bg-[#1B5066]"
+            className="h-1.5 bg-primary"
             style={{ width: `${channel.opportunityScore}%` }}
           />
         </div>
@@ -99,7 +99,7 @@ export default function ChannelCard({ channel, onClick }: ChannelCardProps) {
       </div>
 
       {/* CTA - ALWAYS secondary white with arrow nudge */}
-      <button className="w-full px-4 py-2.5 border border-[#E5E7EB] bg-white text-[#0F172A] text-[13px] font-bold rounded-[6px] hover:border-[#1B5066] hover:text-[#1B5066] transition-colors inline-flex items-center justify-center gap-2 group/btn">
+      <button className="w-full px-4 py-2.5 border border-[#E5E7EB] bg-white text-text-primary text-[13px] font-bold rounded-[6px] hover:border-primary hover:text-primary transition-colors inline-flex items-center justify-center gap-2 group/btn">
         <span>Explore Channel</span>
         <ArrowRight
           size={16}

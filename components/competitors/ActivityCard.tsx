@@ -89,14 +89,14 @@ export default function ActivityCard({
       <div className="flex items-center gap-3">
         <button
           onClick={() => onViewDetails(activity)}
-          className="px-4 py-2 border border-[#E5E7EB] bg-white text-[#0F172A] text-[14px] font-bold rounded-[6px] hover:border-[#1B5066] hover:text-[#1B5066] transition-colors"
+          className="px-4 py-2 border border-[#E5E7EB] bg-white text-text-primary text-[14px] font-bold rounded-[6px] hover:border-primary hover:text-primary transition-colors"
         >
           View Details
         </button>
 
         <button
           onClick={() => onAddToReport(activity)}
-          className="px-4 py-2 border border-[#E5E7EB] bg-white text-[#0F172A] text-[14px] font-bold rounded-[6px] hover:border-[#1B5066] hover:text-[#1B5066] transition-colors"
+          className="px-4 py-2 border border-[#E5E7EB] bg-white text-text-primary text-[14px] font-bold rounded-[6px] hover:border-primary hover:text-primary transition-colors"
         >
           Add to Report
         </button>

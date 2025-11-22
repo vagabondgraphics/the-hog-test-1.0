@@ -49,7 +49,7 @@ export default function FilterBar({
       <div className="flex items-center gap-[10px]">
         {/* All Competitors Dropdown */}
         <div className="relative">
-          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
+          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-primary cursor-pointer">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
               <path d="M2.67 2.67h4v4h-4v-4zm0 6.66h4v4h-4v-4zm6.66-6.66h4v4h-4v-4zm0 6.66h4v4h-4v-4z" stroke="#6B7280" strokeWidth="1"/>
             </svg>
@@ -76,7 +76,7 @@ export default function FilterBar({
 
         {/* All Activities Dropdown */}
         <div className="relative">
-          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
+          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-primary cursor-pointer">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
               <path d="M2.67 2.67h4v4h-4v-4zm0 6.66h4v4h-4v-4zm6.66-6.66h4v4h-4v-4zm0 6.66h4v4h-4v-4z" stroke="#6B7280" strokeWidth="1"/>
             </svg>
@@ -102,7 +102,7 @@ export default function FilterBar({
 
         {/* Last 7 Days Dropdown */}
         <div className="relative">
-          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
+          <button className="flex items-center px-[5px] h-7 gap-[5px] bg-white border border-[#E3E5E8] rounded hover:border-primary cursor-pointer">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
               <path d="M2.67 2.67h4v4h-4v-4zm0 6.66h4v4h-4v-4zm6.66-6.66h4v4h-4v-4zm0 6.66h4v4h-4v-4z" stroke="#6B7280" strokeWidth="1"/>
             </svg>
@@ -130,7 +130,7 @@ export default function FilterBar({
         {onClearFilters && (
           <button
             onClick={onClearFilters}
-            className="text-[12px] font-bold text-[#6B7280] hover:text-[#1B5066] transition-colors ml-2"
+            className="text-[12px] font-bold text-neutral hover:text-primary transition-colors ml-2"
           >
             Clear filters
           </button>

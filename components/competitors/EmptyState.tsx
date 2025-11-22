@@ -26,7 +26,7 @@ export default function EmptyState({ onAddCompetitor }: EmptyStateProps) {
         {/* CTA Button */}
         <button
           onClick={onAddCompetitor}
-          className="bg-[#1B5066] text-white px-24 py-12 rounded-[6px] text-[14px] font-bold hover:opacity-90 transition-opacity mb-16"
+          className="bg-primary text-white px-24 py-12 rounded-[6px] text-[14px] font-bold hover:opacity-90 transition-opacity mb-16"
         >
           Add Competitors
         </button>

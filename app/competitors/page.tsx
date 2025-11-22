@@ -172,7 +172,7 @@ export default function CompetitorsPage() {
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-4 py-2 bg-[#1B5066] text-white text-sm font-bold rounded-md hover:opacity-90"
+                  className="px-4 py-2 bg-primary text-white text-sm font-bold rounded-md hover:opacity-90"
                 >
                   Add Competitor
                 </button>

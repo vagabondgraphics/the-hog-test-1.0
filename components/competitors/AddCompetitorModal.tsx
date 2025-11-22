@@ -155,7 +155,7 @@ export default function AddCompetitorModal({ isOpen, onClose, onSubmit }: AddCom
                   onChange={(e) => setName(e.target.value)}
                   onFocus={fillDemoData}
                   placeholder="Enter competitor name"
-                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-[#1B5066]"
+                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -170,7 +170,7 @@ export default function AddCompetitorModal({ isOpen, onClose, onSubmit }: AddCom
                   onChange={(e) => setWebsite(e.target.value)}
                   onFocus={fillDemoData}
                   placeholder="Enter website URL"
-                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-[#1B5066]"
+                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -186,7 +186,7 @@ export default function AddCompetitorModal({ isOpen, onClose, onSubmit }: AddCom
                   onKeyDown={handleKeywordKeyDown}
                   onFocus={fillDemoData}
                   placeholder="Type keyword and press Enter"
-                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-[#1B5066]"
+                  className="w-full h-9 px-3 py-[6px] bg-white border border-[#F2F2F2] rounded-[4px] text-[16px] text-[#464A53] placeholder:text-[#464A53] focus:outline-none focus:border-primary"
                 />
 
                 {/* Selected Keywords */}
@@ -196,7 +196,7 @@ export default function AddCompetitorModal({ isOpen, onClose, onSubmit }: AddCom
                       <button
                         key={keyword}
                         onClick={() => handleRemoveKeyword(keyword)}
-                        className="px-2 py-1 bg-[#1B5066] text-white text-[12px] rounded-[8px] flex items-center gap-1 hover:opacity-80 transition-opacity"
+                        className="px-2 py-1 bg-primary text-white text-[12px] rounded-[8px] flex items-center gap-1 hover:opacity-80 transition-opacity"
                       >
                         {keyword}
                         <X size={12} weight="bold" />
@@ -241,7 +241,7 @@ export default function AddCompetitorModal({ isOpen, onClose, onSubmit }: AddCom
                 disabled={!isFormValid}
                 className={`px-4 py-1 h-8 rounded-[4px] text-[16px] text-white transition-all ${
                   isFormValid
-                    ? 'bg-[#1B5066] hover:opacity-90 cursor-pointer'
+                    ? 'bg-primary hover:opacity-90 cursor-pointer'
                     : 'bg-[#C3E2EF] cursor-not-allowed'
                 }`}
                 style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}

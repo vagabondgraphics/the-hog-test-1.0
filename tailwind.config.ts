@@ -29,9 +29,21 @@ const config: Config = {
           light: '#F8FAFC',
           dark: '#1E293B',
         },
+        text: {
+          primary: '#0F172A',
+          secondary: '#6B7280',
+        },
         gray: {
           100: '#F2F2F2',
           200: '#E5E7EB',
+        },
+        chart: {
+          reddit: '#5B9BD5',
+          linkedin: '#F4B084',
+          twitter: '#70AD47',
+          slack: '#FFC000',
+          grid: '#F3F4F6',
+          axis: '#9CA3AF',
         },
       },
       spacing: {
@@ -42,9 +54,13 @@ const config: Config = {
         xl: '32px',
       },
       borderRadius: {
-        sm: '4px',
-        md: '8px',
-        lg: '12px',
+        sm: '4px',      // Buttons, small inputs
+        md: '8px',      // Badges, medium elements
+        lg: '12px',     // Keep for backwards compatibility
+        xl: '14px',     // Nested cards
+        '2xl': '16px',  // Primary modals/frames
+        '3xl': '20px',  // Icon containers/circular elements
+        full: '9999px', // Fully rounded
       },
       boxShadow: {
         sm: '0 1px 2px rgba(0,0,0,0.05)',

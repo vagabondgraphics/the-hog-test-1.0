@@ -94,8 +94,8 @@ export default function ChannelsPage() {
                 onClick={() => setViewMode('grid')}
                 className={`flex items-center px-3 h-7 gap-2 rounded transition-all ${
                   viewMode === 'grid'
-                    ? 'bg-[#1B5066] text-white'
-                    : 'bg-white border border-[#E3E5E8] text-[#6B7280] hover:border-[#1B5066]'
+                    ? 'bg-primary text-white'
+                    : 'bg-white border border-[#E3E5E8] text-neutral hover:border-primary'
                 }`}
               >
                 <SquaresFour size={16} weight="bold" />
@@ -105,8 +105,8 @@ export default function ChannelsPage() {
                 onClick={() => setViewMode('list')}
                 className={`flex items-center px-3 h-7 gap-2 rounded transition-all ${
                   viewMode === 'list'
-                    ? 'bg-[#1B5066] text-white'
-                    : 'bg-white border border-[#E3E5E8] text-[#6B7280] hover:border-[#1B5066]'
+                    ? 'bg-primary text-white'
+                    : 'bg-white border border-[#E3E5E8] text-neutral hover:border-primary'
                 }`}
               >
                 <ListBullets size={16} weight="bold" />
@@ -118,8 +118,8 @@ export default function ChannelsPage() {
             <div className="flex items-center gap-3">
               <span className="text-xs font-bold text-[#6B7280]">Sort by</span>
               <div className="relative">
-                <button className="flex items-center px-3 h-7 gap-2 bg-white border border-[#E3E5E8] rounded hover:border-[#1B5066] cursor-pointer">
-                  <SortAscending size={16} weight="bold" className="text-[#6B7280]" />
+                <button className="flex items-center px-3 h-7 gap-2 bg-white border border-[#E3E5E8] rounded hover:border-primary cursor-pointer">
+                  <SortAscending size={16} weight="bold" className="text-neutral" />
                   <span className="text-xs font-bold text-[#0F172A]">
                     {sortBy === 'score' && 'Opportunity Score'}
                     {sortBy === 'name' && 'Name'}

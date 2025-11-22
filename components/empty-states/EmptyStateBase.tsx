@@ -44,7 +44,7 @@ export default function EmptyStateBase({
           <div className="flex items-center justify-center gap-3 mb-12">
             <button
               onClick={primaryCTA.onClick}
-              className="px-6 py-3 bg-[#1B5066] text-white text-[14px] font-bold rounded-[6px] hover:opacity-90 transition-opacity"
+              className="px-6 py-3 bg-primary text-white text-[14px] font-bold rounded-[6px] hover:opacity-90 transition-opacity"
             >
               {primaryCTA.label}
             </button>
@@ -52,7 +52,7 @@ export default function EmptyStateBase({
             {secondaryCTA && (
               <button
                 onClick={secondaryCTA.onClick}
-                className="px-6 py-3 border border-[#1B5066] bg-white text-[#1B5066] text-[14px] font-bold rounded-[6px] hover:bg-[#F0F9FF] transition-colors"
+                className="px-6 py-3 border border-primary bg-white text-primary text-[14px] font-bold rounded-[6px] hover:bg-[#F0F9FF] transition-colors"
               >
                 {secondaryCTA.label}
               </button>

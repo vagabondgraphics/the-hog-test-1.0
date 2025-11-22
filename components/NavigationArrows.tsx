@@ -16,13 +16,13 @@ export default function NavigationArrows() {
         className={`
           w-8 h-8 bg-white border border-[#E5E7EB] rounded flex items-center justify-center transition-all
           ${canGoBack
-            ? 'hover:bg-[#F3F4F6] hover:border-[#1B5066] cursor-pointer'
+            ? 'hover:bg-[#F3F4F6] hover:border-primary cursor-pointer'
             : 'opacity-40 cursor-not-allowed'
           }
         `}
         aria-label="Go back"
       >
-        <ArrowLeft size={16} weight="bold" className="text-[#6B7280]" />
+        <ArrowLeft size={16} weight="bold" className="text-neutral" />
       </button>
 
       {/* Forward Button */}
@@ -33,13 +33,13 @@ export default function NavigationArrows() {
         className={`
           w-8 h-8 bg-white border border-[#E5E7EB] rounded flex items-center justify-center transition-all
           ${canGoForward
-            ? 'hover:bg-[#F3F4F6] hover:border-[#1B5066] cursor-pointer'
+            ? 'hover:bg-[#F3F4F6] hover:border-primary cursor-pointer'
             : 'opacity-40 cursor-not-allowed'
           }
         `}
         aria-label="Go forward"
       >
-        <ArrowRight size={16} weight="bold" className="text-[#6B7280]" />
+        <ArrowRight size={16} weight="bold" className="text-neutral" />
       </button>
     </div>
   );

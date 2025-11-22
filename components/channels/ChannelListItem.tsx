@@ -48,12 +48,12 @@ export default function ChannelListItem({ channel, onClick, isFirst, isLast }: C
         {/* Score with progress bar */}
         <div className="w-24 flex-shrink-0">
           <div className="flex items-baseline gap-1 mb-1.5">
-            <span className="text-[16px] font-bold text-[#1B5066]">{channel.opportunityScore}</span>
-            <span className="text-[10px] text-[#6B7280]">/100</span>
+            <span className="text-[16px] font-bold text-primary">{channel.opportunityScore}</span>
+            <span className="text-[10px] text-neutral">/100</span>
           </div>
           <div className="h-1 w-full bg-[#F3F4F6] rounded-full overflow-hidden">
             <div
-              className="h-1 bg-[#1B5066]"
+              className="h-1 bg-primary"
               style={{ width: `${channel.opportunityScore}%` }}
             />
           </div>
@@ -97,7 +97,7 @@ export default function ChannelListItem({ channel, onClick, isFirst, isLast }: C
 
         {/* CTA button */}
         <button
-          className="px-3 py-1.5 border border-[#E5E7EB] bg-white text-[12px] font-bold rounded-[6px] hover:border-[#1B5066] hover:text-[#1B5066] transition-colors flex-shrink-0"
+          className="px-3 py-1.5 border border-[#E5E7EB] bg-white text-[12px] font-bold rounded-[6px] hover:border-primary hover:text-primary transition-colors flex-shrink-0"
           onClick={(e) => {
             e.stopPropagation();
             onClick(channel);
