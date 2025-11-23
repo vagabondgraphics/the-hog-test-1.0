@@ -6,6 +6,7 @@ import { useNavigationHistory } from '@/contexts/NavigationHistoryContext';
 import Sidebar from '@/components/Sidebar';
 import NavigationArrows from '@/components/NavigationArrows';
 import ChannelBadge from '@/components/ChannelBadge';
+import { PlatformPreview } from '@/components/PlatformPreview';
 import {
   Bell,
   Copy,
@@ -29,6 +30,7 @@ interface Variant {
   content: string;
   isEditing: boolean;
   editedContent: string;
+  showPreview: boolean;
 }
 
 interface Opportunity {
@@ -164,18 +166,21 @@ function ContentGeneratorPageContent() {
         content: `Hey! I've been using The Hog for competitive intelligence and it's been a game-changer for our team. The AI-powered tracking automatically surfaces opportunities like this one, and the personalized content recommendations help us engage at exactly the right moment. Worth checking out if you're looking to automate your GTM research! 🚀`,
         isEditing: false,
         editedContent: '',
+        showPreview: false,
       },
       {
         id: 2,
         content: `We had the same challenge until we started using The Hog. It's an AI-driven platform that monitors competitors across channels and generates personalized content suggestions. The competitor tracking feature alone has saved our team 15+ hours per week. Happy to share more about our experience if helpful!`,
         isEditing: false,
         editedContent: '',
+        showPreview: false,
       },
       {
         id: 3,
         content: `I'd recommend checking out The Hog - it's built specifically for this use case. Their AI automatically tracks competitor activity, identifies opportunities, and even suggests content responses. The personalized recommendations are surprisingly good. They have a free trial if you want to test it out.`,
         isEditing: false,
         editedContent: '',
+        showPreview: false,
       },
     ];
 
@@ -241,6 +246,14 @@ function ContentGeneratorPageContent() {
     setSelectedOpportunity(opp);
     setVariants([]);
     setShowOpportunityModal(false);
+  };
+
+  const handleTogglePreview = (variantId: number) => {
+    setVariants(prev => prev.map(v =>
+      v.id === variantId
+        ? { ...v, showPreview: !v.showPreview }
+        : v
+    ));
   };
 
   const isFormValid = contentType && goal;
@@ -496,9 +509,36 @@ function ContentGeneratorPageContent() {
                     >
                       {/* Variant Header */}
                       <div className="flex items-center justify-between px-5 py-3 border-b border-[#E5E7EB]">
-                        <span className="text-sm font-bold text-[#0F172A]">
-                          Variant {index + 1}
-                        </span>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm font-bold text-[#0F172A]">
+                            Variant {index + 1}
+                          </span>
+
+                          {/* Preview/Content Toggle */}
+                          <div className="flex items-center gap-1 bg-gray-100 rounded-md p-1">
+                            <button
+                              onClick={() => handleTogglePreview(variant.id)}
+                              className={`px-3 py-1 rounded text-xs font-bold transition-colors ${
+                                !variant.showPreview
+                                  ? 'bg-white text-gray-900 shadow-sm'
+                                  : 'text-gray-600 hover:text-gray-900'
+                              }`}
+                            >
+                              Content
+                            </button>
+                            <button
+                              onClick={() => handleTogglePreview(variant.id)}
+                              className={`px-3 py-1 rounded text-xs font-bold transition-colors ${
+                                variant.showPreview
+                                  ? 'bg-white text-gray-900 shadow-sm'
+                                  : 'text-gray-600 hover:text-gray-900'
+                              }`}
+                            >
+                              Preview
+                            </button>
+                          </div>
+                        </div>
+
                         <button
                           onClick={() => handleCopy(variant.id)}
                           className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/5 rounded transition-colors"
@@ -519,7 +559,12 @@ function ContentGeneratorPageContent() {
 
                       {/* Variant Content */}
                       <div className="p-5">
-                        {variant.isEditing ? (
+                        {variant.showPreview ? (
+                          <PlatformPreview
+                            contentType={contentType}
+                            content={variant.editedContent || variant.content}
+                          />
+                        ) : variant.isEditing ? (
                           <textarea
                             value={variant.editedContent}
                             onChange={(e) => setVariants(prev => prev.map(v =>
