@@ -30,23 +30,31 @@ export default function AgentsPage() {
       role: 'Strategic Positioning',
       avatar: '🎯',
       status: 'active',
-      description: 'High-level strategy & positioning'
+      description: 'Active now • 12 msgs'
     },
     {
       id: 'seo',
       name: 'SEO Expert',
       role: 'Content Optimization',
       avatar: '🔍',
-      status: 'idle',
-      description: 'Keyword research & SERP analysis'
+      status: 'active',
+      description: 'Active now • 8 msgs'
     },
     {
       id: 'brand',
       name: 'Brand Strategist',
       role: 'Voice & Messaging',
       avatar: '✨',
+      status: 'active',
+      description: 'Last chat: 2 weeks ago'
+    },
+    {
+      id: 'data',
+      name: 'Data Analyst',
+      role: 'Data insights & reporting',
+      avatar: '📊',
       status: 'coming-soon',
-      description: 'Brand voice & tone guidance'
+      description: 'Data insights & reporting'
     }
   ];
 
@@ -170,7 +178,7 @@ export default function AgentsPage() {
   const currentAgent = agents.find(a => a.id === selectedAgent);
 
   return (
-    <div className="flex h-screen bg-surface-light">
+    <div className="flex h-screen overflow-hidden bg-white">
       <Sidebar />
 
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -178,47 +186,50 @@ export default function AgentsPage() {
 
         <main className="flex-1 flex overflow-hidden">
           {/* Agent Selector - Left Column */}
-          <div className="w-[240px] bg-surface-light border-r border-gray-200 flex flex-col">
+          <div className="w-[280px] bg-white border-r border-gray-100 flex flex-col overflow-hidden">
             <div className="p-4 border-b border-gray-200">
               <h2 className="text-lg font-bold text-gray-900">AI Agents</h2>
               <p className="text-xs text-gray-500 mt-1">Choose your assistant</p>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-3 space-y-2">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3">
               {agents.map(agent => (
                 <button
                   key={agent.id}
                   onClick={() => handleAgentSwitch(agent.id)}
                   disabled={agent.status === 'coming-soon'}
-                  className={`w-full p-3 rounded-lg border-2 transition-all text-left ${
+                  className={`w-full p-4 rounded-md border transition-all text-left ${
                     selectedAgent === agent.id
-                      ? 'border-primary bg-blue-50'
+                      ? 'border-2 border-primary bg-blue-50'
                       : agent.status === 'coming-soon'
-                      ? 'border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed'
-                      : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                      ? 'border border-gray-100 opacity-50 cursor-not-allowed'
+                      : 'border border-gray-100 bg-white hover:bg-gray-50'
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className="text-2xl">{agent.avatar}</div>
+                    <div className="text-2xl flex-shrink-0">{agent.avatar}</div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-bold text-sm text-gray-900 truncate">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className={`font-bold text-sm truncate ${
+                          agent.status === 'coming-soon' ? 'text-gray-500' : 'text-gray-900'
+                        }`}>
                           {agent.name}
                         </h3>
                         {agent.status === 'active' && (
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
                         )}
-                        {agent.status === 'idle' && (
-                          <Clock size={12} className="text-gray-400" />
+                        {agent.status === 'coming-soon' && (
+                          <span className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded font-semibold flex-shrink-0">
+                            Coming Soon
+                          </span>
                         )}
                       </div>
-                      <p className="text-xs text-gray-600 mt-0.5">{agent.role}</p>
-                      <p className="text-xs text-gray-500 mt-1">{agent.description}</p>
-                      {agent.status === 'coming-soon' && (
-                        <div className="mt-2 inline-block px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded-full font-semibold">
-                          Coming Soon
-                        </div>
-                      )}
+                      <p className={`text-xs truncate ${
+                        agent.status === 'coming-soon' ? 'text-gray-400' : 'text-gray-600'
+                      }`}>{agent.role}</p>
+                      <p className={`text-xs mt-1 ${
+                        agent.status === 'coming-soon' ? 'text-gray-400' : 'text-gray-500'
+                      }`}>{agent.description}</p>
                     </div>
                   </div>
                 </button>
@@ -227,9 +238,9 @@ export default function AgentsPage() {
           </div>
 
           {/* Chat Area - Center Column */}
-          <div className="flex-1 max-w-[640px] flex flex-col bg-white">
+          <div className="flex-1 flex flex-col bg-surface-light">
             {/* Chat Header */}
-            <div className="h-16 border-b border-gray-200 flex items-center justify-between px-6">
+            <div className="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 flex-shrink-0">
               <div className="flex items-center gap-3">
                 <div className="text-3xl">{currentAgent?.avatar}</div>
                 <div>
@@ -360,20 +371,20 @@ export default function AgentsPage() {
             </div>
 
             {/* Input Bar */}
-            <div className="border-t border-gray-200 p-4">
-              <div className="flex items-center gap-3">
-                <input
-                  type="text"
+            <div className="bg-white border-t border-gray-100 p-6 flex-shrink-0">
+              <div className="flex items-end gap-3">
+                <textarea
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                  onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
                   placeholder={`Ask ${currentAgent?.name} anything...`}
-                  className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary text-sm"
+                  rows={2}
+                  className="flex-1 px-3 py-3 border border-gray-200 rounded-md resize-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm"
                 />
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim()}
-                  className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="bg-primary text-white p-3 rounded-md hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
                 >
                   <PaperPlaneTilt size={20} weight="fill" />
                 </button>
@@ -382,98 +393,121 @@ export default function AgentsPage() {
           </div>
 
           {/* Context Panel - Right Column */}
-          <div className="w-[280px] bg-surface-light border-l border-gray-200 overflow-y-auto">
-            <div className="p-4 space-y-4">
+          <div className="w-[320px] bg-white border-l border-gray-100 overflow-y-auto">
+            <div className="p-6 space-y-6">
               {/* ICP Card */}
-              <div className="bg-white rounded-lg border border-gray-200 p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-sm text-gray-900">Current ICP</h3>
-                  <button className="text-xs text-primary font-semibold hover:underline">
-                    Edit
-                  </button>
-                </div>
-                <div className="space-y-2 text-xs">
-                  <div>
-                    <span className="text-gray-500">Industry:</span>
-                    <span className="text-gray-900 font-semibold ml-1">B2B SaaS</span>
+              <div className="bg-white border border-gray-100 rounded-md shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-sm text-gray-900">Your ICP</h3>
+                    <button className="text-sm text-primary hover:underline">
+                      Edit
+                    </button>
                   </div>
-                  <div>
-                    <span className="text-gray-500">Company Size:</span>
-                    <span className="text-gray-900 font-semibold ml-1">50-200</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Role:</span>
-                    <span className="text-gray-900 font-semibold ml-1">VP Marketing</span>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Pain Points:</span>
-                    <span className="text-gray-900 font-semibold ml-1">Lead gen, Attribution</span>
+                  <div className="space-y-2 text-sm text-neutral">
+                    <div className="flex gap-2">
+                      <span className="font-semibold min-w-[100px]">Industry:</span>
+                      <span>B2B SaaS</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="font-semibold min-w-[100px]">Company Size:</span>
+                      <span>50-200</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="font-semibold min-w-[100px]">Role:</span>
+                      <span>VP Marketing</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <span className="font-semibold min-w-[100px]">Pain Points:</span>
+                      <span>Lead gen, Attribution</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Competitors Card */}
-              <div className="bg-white rounded-lg border border-gray-200 p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-bold text-sm text-gray-900">Tracked Competitors</h3>
-                  <button className="text-xs text-primary font-semibold hover:underline">
-                    Manage
-                  </button>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-purple-100 rounded flex items-center justify-center text-xs font-bold text-purple-600">
-                      H
-                    </div>
-                    <span className="text-xs font-semibold text-gray-900">HubSpot</span>
+              <div className="bg-white border border-gray-100 rounded-md shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-sm text-gray-900">Competitors (3)</h3>
+                    <button className="text-sm text-primary hover:underline">
+                      Manage
+                    </button>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center text-xs font-bold text-blue-600">
-                      M
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-sm font-bold text-purple-600">
+                        H
+                      </div>
+                      <span className="text-sm text-gray-900">HubSpot</span>
                     </div>
-                    <span className="text-xs font-semibold text-gray-900">Marketo</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-green-100 rounded flex items-center justify-center text-xs font-bold text-green-600">
-                      P
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-sm font-bold text-blue-600">
+                        M
+                      </div>
+                      <span className="text-sm text-gray-900">Marketo</span>
                     </div>
-                    <span className="text-xs font-semibold text-gray-900">Pardot</span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-sm font-bold text-green-600">
+                        P
+                      </div>
+                      <span className="text-sm text-gray-900">Pardot</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Recent Campaigns Card */}
-              <div className="bg-white rounded-lg border border-gray-200 p-4">
-                <h3 className="font-bold text-sm text-gray-900 mb-3">Recent Campaigns</h3>
-                <div className="space-y-3">
-                  <div className="pb-3 border-b border-gray-100">
-                    <div className="text-xs font-semibold text-gray-900 mb-1">Q4 Product Launch</div>
-                    <div className="text-xs text-gray-500">LinkedIn • 12 posts</div>
+              <div className="bg-white border border-gray-100 rounded-md shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-sm text-gray-900">Recent Campaigns</h3>
+                    <button className="text-sm text-primary hover:underline">
+                      View All
+                    </button>
                   </div>
-                  <div className="pb-3 border-b border-gray-100">
-                    <div className="text-xs font-semibold text-gray-900 mb-1">Thought Leadership</div>
-                    <div className="text-xs text-gray-500">Twitter • 24 threads</div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-gray-900 mb-1">Community Engagement</div>
-                    <div className="text-xs text-gray-500">Reddit • 8 comments</div>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-start gap-2">
+                      <span className="text-neutral">•</span>
+                      <div>
+                        <div className="font-semibold text-gray-900">Q4 Product Launch</div>
+                        <div className="text-xs text-neutral">LinkedIn • 12 posts</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-neutral">•</span>
+                      <div>
+                        <div className="font-semibold text-gray-900">Thought Leadership</div>
+                        <div className="text-xs text-neutral">Twitter • 24 threads</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-neutral">•</span>
+                      <div>
+                        <div className="font-semibold text-gray-900">Community Engagement</div>
+                        <div className="text-xs text-neutral">Reddit • 8 comments</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Top Opportunity Card */}
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg border-2 border-orange-200 p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkle size={16} className="text-orange-600" weight="fill" />
-                  <h3 className="font-bold text-sm text-gray-900">Top Opportunity</h3>
-                </div>
-                <div className="text-xs text-gray-700 mb-3">
-                  HubSpot's new AI feature getting negative feedback on Reddit
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-orange-600">High Urgency</span>
-                  <button className="text-xs text-primary font-semibold hover:underline">
-                    View
+              <div className="bg-orange-50 border-2 border-warning rounded-md shadow-sm">
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sparkle size={20} className="text-warning" weight="fill" />
+                    <h3 className="font-bold text-sm text-gray-900">Top Opportunity</h3>
+                  </div>
+                  <p className="text-sm text-neutral mb-3">
+                    HubSpot's new AI feature getting negative feedback on Reddit
+                  </p>
+                  <div className="flex items-center justify-between text-xs mb-4">
+                    <span className="font-bold text-danger">High Urgency</span>
+                    <span className="text-neutral">Score: 9.2/10</span>
+                  </div>
+                  <button className="w-full bg-white border border-gray-200 text-primary font-semibold py-2 px-4 rounded-sm hover:bg-gray-50 transition-colors text-sm">
+                    View Details
                   </button>
                 </div>
               </div>
