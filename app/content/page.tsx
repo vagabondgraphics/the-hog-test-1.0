@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useNavigationHistory } from '@/contexts/NavigationHistoryContext';
 import Sidebar from '@/components/Sidebar';
@@ -100,7 +100,7 @@ const DEMO_OPPORTUNITIES: Opportunity[] = [
   },
 ];
 
-export default function ContentGeneratorPage() {
+function ContentGeneratorPageContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { pushHistory } = useNavigationHistory();
@@ -761,5 +761,13 @@ export default function ContentGeneratorPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function ContentGeneratorPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ContentGeneratorPageContent />
+    </Suspense>
   );
 }
