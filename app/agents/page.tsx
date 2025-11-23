@@ -394,124 +394,120 @@ export default function AgentsPage() {
 
           {/* Context Panel - Right Column */}
           <div className="w-[320px] bg-white border-l border-gray-100 overflow-y-auto">
-            <div className="p-6 space-y-6">
-              {/* ICP Card */}
-              <div className="bg-white border border-gray-100 rounded-md shadow-sm hover:shadow-md transition-shadow">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-bold text-sm text-gray-900">Your ICP</h3>
-                    <button className="text-sm text-primary hover:underline">
-                      Edit
-                    </button>
-                  </div>
-                  <div className="space-y-2 text-sm text-neutral">
-                    <div className="flex gap-2">
-                      <span className="font-semibold min-w-[100px]">Industry:</span>
-                      <span>B2B SaaS</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="font-semibold min-w-[100px]">Company Size:</span>
-                      <span>50-200</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="font-semibold min-w-[100px]">Role:</span>
-                      <span>VP Marketing</span>
-                    </div>
-                    <div className="flex gap-2">
-                      <span className="font-semibold min-w-[100px]">Pain Points:</span>
-                      <span>Lead gen, Attribution</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              {/* Competitors Card */}
-              <div className="bg-white border border-gray-100 rounded-md shadow-sm hover:shadow-md transition-shadow">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-bold text-sm text-gray-900">Competitors (3)</h3>
-                    <button className="text-sm text-primary hover:underline">
-                      Manage
-                    </button>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-sm font-bold text-purple-600">
-                        H
-                      </div>
-                      <span className="text-sm text-gray-900">HubSpot</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-sm font-bold text-blue-600">
-                        M
-                      </div>
-                      <span className="text-sm text-gray-900">Marketo</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-sm font-bold text-green-600">
-                        P
-                      </div>
-                      <span className="text-sm text-gray-900">Pardot</span>
-                    </div>
-                  </div>
-                </div>
+            {/* Your ICP Card */}
+            <div className="bg-white border-b border-gray-100">
+              <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
+                <h3 className="font-bold text-base text-gray-900">Your ICP</h3>
+                <button className="text-sm text-primary hover:underline">
+                  Edit
+                </button>
               </div>
-
-              {/* Recent Campaigns Card */}
-              <div className="bg-white border border-gray-100 rounded-md shadow-sm hover:shadow-md transition-shadow">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-bold text-sm text-gray-900">Recent Campaigns</h3>
-                    <button className="text-sm text-primary hover:underline">
-                      View All
-                    </button>
-                  </div>
-                  <div className="space-y-3 text-sm">
-                    <div className="flex items-start gap-2">
-                      <span className="text-neutral">•</span>
-                      <div>
-                        <div className="font-semibold text-gray-900">Q4 Product Launch</div>
-                        <div className="text-xs text-neutral">LinkedIn • 12 posts</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-neutral">•</span>
-                      <div>
-                        <div className="font-semibold text-gray-900">Thought Leadership</div>
-                        <div className="text-xs text-neutral">Twitter • 24 threads</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-neutral">•</span>
-                      <div>
-                        <div className="font-semibold text-gray-900">Community Engagement</div>
-                        <div className="text-xs text-neutral">Reddit • 8 comments</div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="px-6 py-4 space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-neutral">Industry:</span>
+                  <span className="font-semibold text-gray-900">B2B SaaS</span>
                 </div>
-              </div>
-
-              {/* Top Opportunity Card */}
-              <div className="bg-orange-50 border-2 border-warning rounded-md shadow-sm">
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Sparkle size={20} className="text-warning" weight="fill" />
-                    <h3 className="font-bold text-sm text-gray-900">Top Opportunity</h3>
-                  </div>
-                  <p className="text-sm text-neutral mb-3">
-                    HubSpot's new AI feature getting negative feedback on Reddit
-                  </p>
-                  <div className="flex items-center justify-between text-xs mb-4">
-                    <span className="font-bold text-danger">High Urgency</span>
-                    <span className="text-neutral">Score: 9.2/10</span>
-                  </div>
-                  <button className="w-full bg-white border border-gray-200 text-primary font-semibold py-2 px-4 rounded-sm hover:bg-gray-50 transition-colors text-sm">
-                    View Details
-                  </button>
+                <div className="flex justify-between">
+                  <span className="text-neutral">Company Size:</span>
+                  <span className="font-semibold text-gray-900">50-200</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-neutral">Role:</span>
+                  <span className="font-semibold text-gray-900">VP Marketing</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-neutral">Pain Points:</span>
+                  <span className="font-semibold text-gray-900 text-right">Lead gen, Attribution</span>
                 </div>
               </div>
             </div>
+
+            {/* Competitors Card */}
+            <div className="bg-white border-b border-gray-100">
+              <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
+                <h3 className="font-bold text-base text-gray-900">Competitors (3)</h3>
+                <button className="text-sm text-primary hover:underline">
+                  Manage
+                </button>
+              </div>
+              <div className="px-6 py-4 space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-sm font-bold text-purple-600">
+                    H
+                  </div>
+                  <span className="text-sm text-gray-900">HubSpot</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-sm font-bold text-blue-600">
+                    M
+                  </div>
+                  <span className="text-sm text-gray-900">Marketo</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-sm font-bold text-green-600">
+                    P
+                  </div>
+                  <span className="text-sm text-gray-900">Pardot</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Recent Campaigns Card */}
+            <div className="bg-white border-b border-gray-100">
+              <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
+                <h3 className="font-bold text-base text-gray-900">Recent Campaigns</h3>
+                <button className="text-sm text-primary hover:underline">
+                  View All
+                </button>
+              </div>
+              <div className="px-6 py-4 space-y-3">
+                <div className="flex items-start gap-2">
+                  <span className="text-neutral mt-1">•</span>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-gray-900">Q4 Product Launch</div>
+                    <div className="text-xs text-neutral">LinkedIn • 12 posts</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-neutral mt-1">•</span>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-gray-900">Thought Leadership</div>
+                    <div className="text-xs text-neutral">Twitter • 24 threads</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-neutral mt-1">•</span>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-gray-900">Community Engagement</div>
+                    <div className="text-xs text-neutral">Reddit • 8 comments</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Top Opportunity Card - Clean White Design */}
+            <div className="bg-white border-b border-gray-100">
+              <div className="px-6 py-4 flex items-center gap-2 border-b border-gray-100">
+                <Sparkle size={18} className="text-neutral" weight="regular" />
+                <h3 className="font-bold text-base text-gray-900">Top Opportunity</h3>
+              </div>
+              <div className="px-6 py-4">
+                <p className="text-sm text-neutral mb-4 leading-relaxed">
+                  HubSpot's new AI feature getting negative feedback on Reddit
+                </p>
+                <div className="flex items-center justify-between text-xs mb-4">
+                  <span className="px-2 py-1 bg-red-100 text-danger font-semibold rounded">
+                    High Urgency
+                  </span>
+                  <span className="text-neutral">Score: 9.2/10</span>
+                </div>
+                <button className="w-full border border-gray-200 text-primary bg-white font-semibold py-2.5 px-4 rounded-sm hover:bg-gray-50 transition-colors text-sm">
+                  View Details
+                </button>
+              </div>
+            </div>
+
           </div>
         </main>
       </div>
