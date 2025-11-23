@@ -118,7 +118,7 @@ function ContentGeneratorPageContent() {
   const [showOpportunityModal, setShowOpportunityModal] = useState(false);
   const [copiedVariant, setCopiedVariant] = useState<number | null>(null);
   const [regeneratingVariant, setRegeneratingVariant] = useState<number | null>(null);
-  const [showDifferenceExplainer, setShowDifferenceExplainer] = useState(false);
+  const [showDifferenceExplainer, setShowDifferenceExplainer] = useState(true);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
