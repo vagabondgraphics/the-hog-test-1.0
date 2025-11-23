@@ -197,7 +197,10 @@ export default function TopOpportunitiesSection() {
 
               {/* CTAs */}
               <div className="flex gap-3">
-                <button className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm">
+                <button
+                  onClick={() => router.push(`/content?opportunityId=${mainOpportunity.id}`)}
+                  className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-primary text-white h-10 px-6 text-sm"
+                >
                   Generate Reply
                 </button>
                 <button className="font-bold rounded-lg transition-opacity hover:opacity-90 bg-white text-primary border border-primary h-10 px-6 text-sm">
@@ -228,7 +231,10 @@ export default function TopOpportunitiesSection() {
                 </h4>
 
                 {/* See More Button (Right) */}
-                <button className="px-4 py-2 border border-primary text-primary text-sm font-bold rounded-md hover:bg-blue-50 transition-colors whitespace-nowrap">
+                <button
+                  onClick={() => router.push(`/content?opportunityId=${opp.id}`)}
+                  className="px-4 py-2 border border-primary text-primary text-sm font-bold rounded-md hover:bg-blue-50 transition-colors whitespace-nowrap"
+                >
                   See More
                 </button>
               </div>
