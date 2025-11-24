@@ -263,15 +263,16 @@ function ContentGeneratorPageContent() {
       <Sidebar />
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Fixed Header */}
+        {/* Page Header */}
         <div className="flex-shrink-0">
-          <div className="bg-white border-b border-[#F2F2F2] px-6 py-3">
+          <div className="bg-white border-b border-gray-100 px-6 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <h1 className="text-base font-bold text-[#0F172A]">THE HOG</h1>
-                <span className="text-[#6B7280]">•</span>
+              <div className="flex items-center gap-4">
                 <NavigationArrows />
-                <h2 className="text-base font-bold text-[#0F172A]">Content Generator</h2>
+                <div>
+                  <h1 className="text-page-title text-gray-900">Content Generator</h1>
+                  <p className="text-body-sm text-neutral mt-0.5">Create AI-powered content tailored to your opportunities</p>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <button
@@ -290,14 +291,6 @@ function ContentGeneratorPageContent() {
           <div className="flex h-full">
             {/* LEFT PANEL - Context + Inputs (480px fixed) */}
             <div className="w-[480px] flex-shrink-0 border-r border-[#E5E7EB] p-6 overflow-y-auto">
-              {/* Page Header */}
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-[#0F172A] mb-2">Generate Content</h3>
-                <p className="text-sm text-[#6B7280]">
-                  Create AI-powered content tailored to your opportunities
-                </p>
-              </div>
-
               {/* Context Card - Only show if opportunity selected */}
               {selectedOpportunity && (
                 <div className="mb-6 p-4 bg-[#F8FAFC] border border-[#E5E7EB] rounded-xl">

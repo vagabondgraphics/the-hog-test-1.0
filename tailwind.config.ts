@@ -68,12 +68,20 @@ const config: Config = {
         lg: '0 10px 15px rgba(0,0,0,0.1)',
       },
       fontSize: {
+        // New typography system
+        'page-title': ['24px', { lineHeight: '32px', fontWeight: '700' }],
+        'section-title': ['18px', { lineHeight: '24px', fontWeight: '700' }],
+        'subsection-title': ['16px', { lineHeight: '24px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        body: ['14px', { lineHeight: '20px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }],
+        caption: ['12px', { lineHeight: '16px', fontWeight: '400' }],
+        label: ['11px', { lineHeight: '16px', fontWeight: '600' }],
+
+        // Legacy support (will be removed)
         display: ['32px', { lineHeight: '40px', fontWeight: '700', letterSpacing: '-0.5px' }],
         h1: ['24px', { lineHeight: '32px', fontWeight: '700' }],
         h2: ['20px', { lineHeight: '28px', fontWeight: '700' }],
-        body: ['16px', { lineHeight: '24px', fontWeight: '400' }],
-        'body-sm': ['14px', { lineHeight: '20px', fontWeight: '400' }],
-        caption: ['12px', { lineHeight: '16px', fontWeight: '700' }],
       },
     },
   },

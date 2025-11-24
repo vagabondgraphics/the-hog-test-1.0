@@ -59,22 +59,20 @@ export default function ChannelsPage() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Fixed Header - Doesn't scroll */}
         <div className="flex-shrink-0">
-          {/* Compact Combined Header */}
-          <div className="bg-white border-b border-[#F2F2F2] px-6 py-3">
+          {/* Page Header */}
+          <div className="bg-white border-b border-gray-100 px-6 py-4">
             <div className="flex items-center justify-between">
-              {/* Left: Logo + Nav Arrows + Title + Summary Badge */}
-              <div className="flex items-center gap-3">
-                <h1 className="text-base font-bold text-[#0F172A]">THE HOG</h1>
-                <span className="text-[#6B7280]">•</span>
-
+              {/* Left: Nav Arrows + Title + Summary */}
+              <div className="flex items-center gap-4">
                 {/* Navigation Arrows (Back/Forward) */}
                 <NavigationArrows />
 
-                <h2 className="text-base font-bold text-[#0F172A]">Channels</h2>
-
-                <span className="px-2 py-1 bg-[#F3F4F6] text-[#6B7280] text-xs rounded-full">
-                  {totalOpportunities} opportunities across {channels.length} channels
-                </span>
+                <div>
+                  <h1 className="text-page-title text-gray-900">Channels</h1>
+                  <p className="text-body-sm text-neutral mt-0.5">
+                    {totalOpportunities} opportunities across {channels.length} channels
+                  </p>
+                </div>
               </div>
 
               {/* Right: Bell Icon */}
