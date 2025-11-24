@@ -216,7 +216,10 @@ export default function AgentsPage() {
                           {agent.name}
                         </h3>
                         {agent.status === 'active' && (
-                          <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                          <>
+                            <span className="sr-only">Active</span>
+                            <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0" aria-hidden="true"></div>
+                          </>
                         )}
                         {agent.status === 'coming-soon' && (
                           <span className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded font-semibold flex-shrink-0">
@@ -248,7 +251,10 @@ export default function AgentsPage() {
                   <p className="text-xs text-neutral leading-tight">{currentAgent?.role}</p>
                 </div>
               </div>
-              <button className="text-neutral hover:text-gray-900">
+              <button
+                className="text-neutral hover:text-gray-900"
+                aria-label="Agent options"
+              >
                 <DotsThree size={24} />
               </button>
             </div>
@@ -373,7 +379,11 @@ export default function AgentsPage() {
             {/* Input Bar */}
             <div className="bg-white border-t border-gray-100 p-6 flex-shrink-0">
               <div className="flex items-end gap-3">
+                <label htmlFor="chat-input" className="sr-only">
+                  Message {currentAgent?.name}
+                </label>
                 <textarea
+                  id="chat-input"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
@@ -385,6 +395,7 @@ export default function AgentsPage() {
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim()}
                   className="bg-primary text-white p-3 rounded-md hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
+                  aria-label="Send message"
                 >
                   <PaperPlaneTilt size={20} weight="fill" />
                 </button>
@@ -406,7 +417,10 @@ export default function AgentsPage() {
             <div className="bg-white border-b border-gray-100">
               <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
                 <h3 className="font-bold text-base text-gray-900">Your ICP</h3>
-                <button className="text-sm text-primary hover:underline">
+                <button
+                  className="text-sm text-primary hover:underline"
+                  aria-label="Edit ICP settings"
+                >
                   Edit
                 </button>
               </div>
@@ -434,7 +448,10 @@ export default function AgentsPage() {
             <div className="bg-white border-b border-gray-100">
               <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
                 <h3 className="font-bold text-base text-gray-900">Competitors (3)</h3>
-                <button className="text-sm text-primary hover:underline">
+                <button
+                  className="text-sm text-primary hover:underline"
+                  aria-label="Manage competitors"
+                >
                   Manage
                 </button>
               </div>
@@ -464,7 +481,10 @@ export default function AgentsPage() {
             <div className="bg-white border-b border-gray-100">
               <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
                 <h3 className="font-bold text-base text-gray-900">Recent Campaigns</h3>
-                <button className="text-sm text-primary hover:underline">
+                <button
+                  className="text-sm text-primary hover:underline"
+                  aria-label="View all campaigns"
+                >
                   View All
                 </button>
               </div>
@@ -505,11 +525,15 @@ export default function AgentsPage() {
                 </p>
                 <div className="flex items-center justify-between text-xs mb-4">
                   <span className="px-2 py-1 bg-red-100 text-danger font-semibold rounded">
+                    <span className="sr-only">Urgency level:</span>
                     High Urgency
                   </span>
-                  <span className="text-neutral">Score: 9.2/10</span>
+                  <span className="text-neutral"><span className="sr-only">Opportunity score:</span>Score: 9.2/10</span>
                 </div>
-                <button className="w-full border border-gray-200 text-primary bg-white font-semibold py-2.5 px-4 rounded-sm hover:bg-gray-50 transition-colors text-sm">
+                <button
+                  className="w-full border border-gray-200 text-primary bg-white font-semibold py-2.5 px-4 rounded-sm hover:bg-gray-50 transition-colors text-sm"
+                  aria-label="View opportunity details: HubSpot AI feature backlash"
+                >
                   View Details
                 </button>
               </div>

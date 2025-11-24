@@ -151,7 +151,10 @@ export default function TopOpportunitiesSection() {
                 <span className="inline-flex items-center px-2 py-1 rounded text-xs font-bold bg-yellow-100 text-yellow-800">
                   {mainOpportunity.timeLeft}
                 </span>
-                <button className="ml-auto w-5 h-5 flex items-center justify-center text-neutral hover:text-primary transition-colors">
+                <button
+                  className="ml-auto w-5 h-5 flex items-center justify-center text-neutral hover:text-primary transition-colors"
+                  aria-label="Set reminder for opportunity"
+                >
                   🔔
                 </button>
               </div>
@@ -257,6 +260,7 @@ export default function TopOpportunitiesSection() {
             <button
               onClick={handleCloseToast}
               className="text-neutral hover:text-white text-lg leading-none ml-2"
+              aria-label="Close notification"
             >
               ×
             </button>

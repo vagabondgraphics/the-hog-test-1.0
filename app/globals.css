@@ -69,3 +69,137 @@ h1, h2, h3, h4, h5, h6 {
 .animate-slide-up {
   animation: slide-up 200ms ease-out;
 }
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Placeholder text with WCAG AA contrast */
+::placeholder {
+  color: #6B7280; /* gray-500: 4.83:1 contrast ratio */
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #6B7280;
+}
+
+::-ms-input-placeholder {
+  color: #6B7280;
+}
+
+/* Focus indicators for keyboard navigation */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #1B5066;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure focus is visible on buttons */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #1B5066;
+  outline-offset: 2px;
+}
+
+/* High contrast focus for dark backgrounds */
+[class*="bg-primary"]:focus-visible,
+[class*="bg-gray-"]:focus-visible {
+  outline-color: #60A5FA; /* blue-400 for better contrast */
+}
+
+/* ============================================
+   WCAG AA COMPLIANT BADGE COLORS
+   ============================================ */
+
+/* Danger badges - use red-800 for 4.5:1+ contrast */
+.badge-danger {
+  background-color: #FEE2E2; /* red-100 */
+  color: #991B1B; /* red-800: 5.94:1 contrast */
+}
+
+/* Warning badges - use orange-800 for 4.5:1+ contrast */
+.badge-warning {
+  background-color: #FEF3C7; /* yellow-100 */
+  color: #92400E; /* orange-800: 4.78:1 contrast */
+}
+
+/* Success badges - use green-800 for 4.5:1+ contrast */
+.badge-success {
+  background-color: #D1FAE5; /* green-100 */
+  color: #065F46; /* green-800: 4.56:1 contrast */
+}
+
+/* Info/Primary badges */
+.badge-info {
+  background-color: #E0F2FE; /* blue-100 */
+  color: #1B5066; /* primary: 7.67:1 contrast */
+}
+
+/* ============================================
+   DISABLED STATES - WCAG AA COMPLIANT
+   ============================================ */
+
+/* Disabled buttons need 3:1 contrast for large text */
+button:disabled,
+button[disabled] {
+  color: #6B7280; /* gray-500: 4.83:1 - exceeds 3:1 requirement */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================
+   SKIP LINKS FOR KEYBOARD NAVIGATION
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #1B5066;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

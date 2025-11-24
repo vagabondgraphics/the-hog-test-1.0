@@ -79,7 +79,10 @@ export default function ChannelsPage() {
 
               {/* Right: Bell Icon */}
               <div className="flex items-center gap-3">
-                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
+                <button
+                  className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors"
+                  aria-label="Notifications"
+                >
                   <Bell size={20} weight="regular" />
                 </button>
               </div>
@@ -97,6 +100,8 @@ export default function ChannelsPage() {
                     ? 'bg-primary text-white'
                     : 'bg-white border border-[#E3E5E8] text-neutral hover:border-primary'
                 }`}
+                aria-label="Switch to grid view"
+                aria-pressed={viewMode === 'grid'}
               >
                 <SquaresFour size={16} weight="bold" />
                 <span className="text-xs font-bold">Grid</span>
@@ -108,6 +113,8 @@ export default function ChannelsPage() {
                     ? 'bg-primary text-white'
                     : 'bg-white border border-[#E3E5E8] text-neutral hover:border-primary'
                 }`}
+                aria-label="Switch to list view"
+                aria-pressed={viewMode === 'list'}
               >
                 <ListBullets size={16} weight="bold" />
                 <span className="text-xs font-bold">List</span>
@@ -130,6 +137,7 @@ export default function ChannelsPage() {
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  aria-label="Sort channels by"
                 >
                   <option value="score">Opportunity Score</option>
                   <option value="name">Name</option>
@@ -181,6 +189,7 @@ export default function ChannelsPage() {
             <button
               onClick={() => setShowToast(false)}
               className="text-neutral hover:text-white text-lg leading-none ml-2"
+              aria-label="Close notification"
             >
               ×
             </button>

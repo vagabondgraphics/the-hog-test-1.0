@@ -274,7 +274,10 @@ function ContentGeneratorPageContent() {
                 <h2 className="text-base font-bold text-[#0F172A]">Content Generator</h2>
               </div>
               <div className="flex items-center gap-3">
-                <button className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors">
+                <button
+                  className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded transition-colors"
+                  aria-label="Notifications"
+                >
                   <Bell size={20} weight="regular" />
                 </button>
               </div>
@@ -306,6 +309,7 @@ function ContentGeneratorPageContent() {
                     <button
                       onClick={() => setShowOpportunityModal(true)}
                       className="text-xs font-bold text-primary hover:underline"
+                      aria-label="Change opportunity"
                     >
                       Change
                     </button>
@@ -523,6 +527,8 @@ function ContentGeneratorPageContent() {
                                   ? 'bg-white text-gray-900 shadow-sm'
                                   : 'text-gray-600 hover:text-gray-900'
                               }`}
+                              aria-label="Show content view"
+                              aria-pressed={!variant.showPreview}
                             >
                               Content
                             </button>
@@ -533,6 +539,8 @@ function ContentGeneratorPageContent() {
                                   ? 'bg-white text-gray-900 shadow-sm'
                                   : 'text-gray-600 hover:text-gray-900'
                               }`}
+                              aria-label="Show platform preview"
+                              aria-pressed={variant.showPreview}
                             >
                               Preview
                             </button>
@@ -542,6 +550,7 @@ function ContentGeneratorPageContent() {
                         <button
                           onClick={() => handleCopy(variant.id)}
                           className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/5 rounded transition-colors"
+                          aria-label={copiedVariant === variant.id ? "Copied to clipboard" : `Copy variant ${index + 1} to clipboard`}
                         >
                           {copiedVariant === variant.id ? (
                             <>
@@ -605,6 +614,7 @@ function ContentGeneratorPageContent() {
                             <button
                               onClick={() => handleEdit(variant.id)}
                               className="flex items-center gap-2 px-4 py-2 text-xs font-bold text-primary bg-white border border-[#E5E7EB] rounded-lg hover:border-primary transition-colors"
+                              aria-label={`Edit variant ${index + 1}`}
                             >
                               <PencilSimple size={16} weight="bold" />
                               Edit
@@ -613,6 +623,7 @@ function ContentGeneratorPageContent() {
                               onClick={() => handleRegenerateVariant(variant.id)}
                               disabled={regeneratingVariant === variant.id}
                               className="flex items-center gap-2 px-4 py-2 text-xs font-bold text-primary bg-white border border-[#E5E7EB] rounded-lg hover:border-primary transition-colors disabled:opacity-50"
+                              aria-label={`Regenerate variant ${index + 1}`}
                             >
                               <ArrowsClockwise
                                 size={16}
@@ -641,6 +652,8 @@ function ContentGeneratorPageContent() {
                     <button
                       onClick={() => setShowDifferenceExplainer(!showDifferenceExplainer)}
                       className="w-full flex items-center justify-between px-5 py-3 bg-[#F8FAFC] hover:bg-[#F3F4F6] transition-colors"
+                      aria-label={showDifferenceExplainer ? "Hide variant differences explanation" : "Show how variants differ"}
+                      aria-expanded={showDifferenceExplainer}
                     >
                       <div className="flex items-center gap-2">
                         <Info size={16} weight="bold" className="text-primary" />
@@ -691,6 +704,7 @@ function ContentGeneratorPageContent() {
               <button
                 onClick={() => setShowScheduleModal(null)}
                 className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-3xl transition-colors"
+                aria-label="Close schedule modal"
               >
                 <X size={20} weight="bold" />
               </button>
@@ -753,6 +767,7 @@ function ContentGeneratorPageContent() {
               <button
                 onClick={() => setShowOpportunityModal(false)}
                 className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-3xl transition-colors"
+                aria-label="Close opportunity selection modal"
               >
                 <X size={20} weight="bold" />
               </button>
@@ -799,6 +814,7 @@ function ContentGeneratorPageContent() {
             <button
               onClick={() => setShowToast(false)}
               className="text-neutral hover:text-white text-lg leading-none ml-2"
+              aria-label="Close notification"
             >
               ×
             </button>
