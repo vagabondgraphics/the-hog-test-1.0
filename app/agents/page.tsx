@@ -187,9 +187,9 @@ export default function AgentsPage() {
         <main className="flex-1 flex overflow-hidden">
           {/* Agent Selector - Left Column */}
           <div className="w-[280px] bg-white border-r border-gray-100 flex flex-col overflow-hidden">
-            <div className="p-4 border-b border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900">AI Agents</h2>
-              <p className="text-xs text-gray-500 mt-1">Choose your assistant</p>
+            <div className="h-[72px] px-6 flex flex-col justify-center border-b border-gray-100 shrink-0">
+              <h2 className="text-base font-bold text-gray-900 mb-0.5">AI Agents</h2>
+              <p className="text-xs text-neutral">Choose your assistant</p>
             </div>
 
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -240,16 +240,16 @@ export default function AgentsPage() {
           {/* Chat Area - Center Column */}
           <div className="flex-1 flex flex-col bg-surface-light">
             {/* Chat Header */}
-            <div className="h-16 bg-white border-b border-gray-100 flex items-center justify-between px-6 flex-shrink-0">
+            <div className="h-[72px] bg-white border-b border-gray-100 px-6 flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
                 <div className="text-3xl">{currentAgent?.avatar}</div>
                 <div>
-                  <h2 className="font-bold text-gray-900">{currentAgent?.name}</h2>
-                  <p className="text-xs text-gray-500">{currentAgent?.role}</p>
+                  <h2 className="text-base font-bold text-gray-900 leading-tight mb-0">{currentAgent?.name}</h2>
+                  <p className="text-xs text-neutral leading-tight">{currentAgent?.role}</p>
                 </div>
               </div>
-              <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                <DotsThree size={24} className="text-gray-600" />
+              <button className="text-neutral hover:text-gray-900">
+                <DotsThree size={24} />
               </button>
             </div>
 
@@ -393,9 +393,16 @@ export default function AgentsPage() {
           </div>
 
           {/* Context Panel - Right Column */}
-          <div className="w-[320px] bg-white border-l border-gray-100 overflow-y-auto">
+          <div className="w-[320px] bg-white border-l border-gray-100 flex flex-col overflow-hidden">
 
-            {/* Your ICP Card */}
+            {/* Context Header */}
+            <div className="h-[72px] px-6 flex items-center justify-between border-b border-gray-100 shrink-0">
+              <h2 className="text-base font-bold text-gray-900">Context</h2>
+            </div>
+
+            {/* Scrollable Context Cards */}
+            <div className="flex-1 overflow-y-auto">
+              {/* Your ICP Card */}
             <div className="bg-white border-b border-gray-100">
               <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
                 <h3 className="font-bold text-base text-gray-900">Your ICP</h3>
@@ -508,6 +515,7 @@ export default function AgentsPage() {
               </div>
             </div>
 
+            </div>
           </div>
         </main>
       </div>
